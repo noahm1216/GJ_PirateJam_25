@@ -1,0 +1,223 @@
+<mxfile host="app.diagrams.net" modified="2025-01-10T02:24:07.378Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0" etag="tR8e_pKmLIZniksBHgV0" version="24.2.3" type="device">
+  <diagram name="Page-1" id="gg7f-t6E4PqmIiG2PvOO">
+    <mxGraphModel dx="998" dy="1957" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="3eQn40jZDsC7zp0alb47-1" value="Unit" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=31;" vertex="1" parent="1">
+          <mxGeometry x="-220" y="-700" width="127.5" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-2" value="Visible Stats" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="-380" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-3" value="Visual" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="-560" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-4" value="Equipment" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="-80" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-5" value="Hidden&lt;div&gt;References&lt;/div&gt;&lt;div&gt;or Goals&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="70" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-6" value="Hidden Stats" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="-220" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-8" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="3eQn40jZDsC7zp0alb47-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-160" y="110" as="sourcePoint" />
+            <mxPoint x="-160" y="-500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-9" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" parent="1" source="3eQn40jZDsC7zp0alb47-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-240" y="-490" as="sourcePoint" />
+            <mxPoint x="-160" y="-520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-10" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" parent="1" source="3eQn40jZDsC7zp0alb47-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-90" y="-340.5" as="sourcePoint" />
+            <mxPoint x="-160" y="-340.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-11" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="3eQn40jZDsC7zp0alb47-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-90" y="-180.5" as="sourcePoint" />
+            <mxPoint x="-160" y="-180.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-12" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="3eQn40jZDsC7zp0alb47-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-90" y="-40.5" as="sourcePoint" />
+            <mxPoint x="-160" y="-40.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-13" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" parent="1" source="3eQn40jZDsC7zp0alb47-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-90" y="109.5" as="sourcePoint" />
+            <mxPoint x="-160" y="109.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-15" value="- Profile Picture&lt;div&gt;- Character Art / Model&lt;/div&gt;&lt;div&gt;- Character Animation&lt;/div&gt;" style="shape=card;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="-590" width="160" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-16" value="- NAME&lt;div&gt;- Class (or class list)&lt;br&gt;&lt;div&gt;- Lv (total)&lt;/div&gt;&lt;div&gt;- hp = health&lt;/div&gt;&lt;div&gt;- Exp (to next level)&lt;/div&gt;&lt;div&gt;- power = dmg/magic&lt;/div&gt;&lt;div&gt;- fortitude = defense&lt;/div&gt;&lt;div&gt;-&amp;nbsp; range = attk distance&lt;/div&gt;&lt;/div&gt;" style="shape=card;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="-420" width="160" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-17" value="- secret goal stats to compare&lt;div&gt;- history of battle experience and joined the team dates&lt;/div&gt;&lt;div&gt;- list of other units that loves&lt;/div&gt;&lt;div&gt;- list of other units that hates&lt;/div&gt;" style="shape=card;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="-260" width="160" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-18" value="- slot 1 (increase a stat)&lt;div&gt;- slot 2 (increase a stat)&amp;nbsp;&lt;/div&gt;&lt;div&gt;- slot 3 (increase a stat)&amp;nbsp;&lt;/div&gt;" style="shape=card;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="-107.5" width="160" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-19" value="- if &quot;unit-[A]&quot; on battlefield, say text&lt;div&gt;- if stat = X then unlock mission&amp;nbsp;&lt;/div&gt;&lt;div&gt;- if see 3 allies die, then do Y&amp;nbsp;&lt;/div&gt;" style="shape=card;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="40" width="160" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-20" value="Map&lt;div&gt;Battle&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=31;" vertex="1" parent="1">
+          <mxGeometry x="460" y="-730" width="127.5" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-21" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="520" y="330" as="sourcePoint" />
+            <mxPoint x="524" y="-560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-22" value="Spawn Map" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="-590" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-23" value="Spawn&lt;div&gt;Obstacles&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="-490" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-24" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" source="3eQn40jZDsC7zp0alb47-23" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="-450.5" as="sourcePoint" />
+            <mxPoint x="520" y="-450.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-25" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" source="3eQn40jZDsC7zp0alb47-22" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="-520" as="sourcePoint" />
+            <mxPoint x="520" y="-550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-26" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" source="3eQn40jZDsC7zp0alb47-27" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="-350.5" as="sourcePoint" />
+            <mxPoint x="520" y="-350.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-27" value="Spawn All&lt;div&gt;Active Units&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="-390" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-28" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" source="3eQn40jZDsC7zp0alb47-29" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="-250.5" as="sourcePoint" />
+            <mxPoint x="520" y="-250.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-29" value="Run Through&lt;div&gt;Active Units&lt;/div&gt;&lt;div&gt;Specials or Reinforcements&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="-290" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-30" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" source="3eQn40jZDsC7zp0alb47-31" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="-150.5" as="sourcePoint" />
+            <mxPoint x="520" y="-150.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-31" value="Play Any&lt;div&gt;Dialogue&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Collected&lt;/span&gt;&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="-190" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-35" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" source="3eQn40jZDsC7zp0alb47-36" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="-50.5" as="sourcePoint" />
+            <mxPoint x="520" y="-50.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-36" value="Group All Units&lt;div&gt;Into A Turn&lt;/div&gt;&lt;div&gt;Order&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="-90" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-37" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" source="3eQn40jZDsC7zp0alb47-38" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="49.5" as="sourcePoint" />
+            <mxPoint x="520" y="49.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-38" value="Have PC and&lt;div&gt;NPC brains&lt;/div&gt;&lt;div&gt;take their&lt;/div&gt;&lt;div&gt;turns&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="10" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-39" value="Unit&lt;br&gt;&lt;div&gt;Battle&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=31;" vertex="1" parent="1">
+          <mxGeometry x="930" y="-710" width="127.5" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-40" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="990" y="100" as="sourcePoint" />
+            <mxPoint x="994" y="-540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-41" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" source="3eQn40jZDsC7zp0alb47-42" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="910" y="-500" as="sourcePoint" />
+            <mxPoint x="990" y="-530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-42" value="One Unit Atks&lt;div&gt;Another Unit&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="-570" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-43" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" source="3eQn40jZDsC7zp0alb47-44" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="910" y="-390" as="sourcePoint" />
+            <mxPoint x="990" y="-420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-44" value="A queue is&amp;nbsp;&lt;div&gt;made of the&lt;/div&gt;&lt;div&gt;units possible&lt;/div&gt;&lt;div&gt;attks&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="-460" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-45" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" source="3eQn40jZDsC7zp0alb47-46" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="910" y="-280" as="sourcePoint" />
+            <mxPoint x="990" y="-310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-46" value="Animation&lt;div&gt;Plays of those&lt;/div&gt;&lt;div&gt;attacks playing&lt;/div&gt;&lt;div&gt;out&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="-350" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-47" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" source="3eQn40jZDsC7zp0alb47-48" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="170" as="sourcePoint" />
+            <mxPoint x="520" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-48" value="unit turn ends&lt;div&gt;when all units in&lt;/div&gt;&lt;div&gt;a group have&lt;/div&gt;&lt;div&gt;ended, next group&lt;/div&gt;&lt;div&gt;starts&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="100" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-50" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" source="3eQn40jZDsC7zp0alb47-51" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="910" y="-170" as="sourcePoint" />
+            <mxPoint x="990" y="-200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-51" value="When both&lt;div&gt;units have used&lt;/div&gt;&lt;div&gt;all their queued&lt;/div&gt;&lt;div&gt;moves or when&lt;/div&gt;&lt;div&gt;one dies, the battle ends&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="-240" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-52" value="As condition&amp;nbsp;&lt;div&gt;are met&lt;div&gt;conversations&lt;/div&gt;&lt;div&gt;&amp;nbsp;pop up&lt;/div&gt;&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="190" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-53" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" source="3eQn40jZDsC7zp0alb47-52" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="229.5" as="sourcePoint" />
+            <mxPoint x="520" y="229.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-54" value="" style="endArrow=none;dashed=1;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;" edge="1" source="3eQn40jZDsC7zp0alb47-55" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="590" y="319.5" as="sourcePoint" />
+            <mxPoint x="520" y="319.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3eQn40jZDsC7zp0alb47-55" value="&lt;div&gt;When all units die&lt;/div&gt;&lt;div&gt;or conditions&lt;/div&gt;&lt;div&gt;are met, the&lt;/div&gt;&lt;div&gt;battle is over&lt;/div&gt;" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="280" width="120" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

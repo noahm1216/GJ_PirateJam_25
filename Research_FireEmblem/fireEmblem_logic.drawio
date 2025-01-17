@@ -1,0 +1,265 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="26.0.4">
+  <diagram name="Page-1" id="IssXefRyMcFVXVBYqxxN">
+    <mxGraphModel dx="646" dy="867" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RXCkCdVxwRV_W-t0KAh_-1" target="RXCkCdVxwRV_W-t0KAh_-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-1" value="Pop Up Dialogue" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RXCkCdVxwRV_W-t0KAh_-2" target="RXCkCdVxwRV_W-t0KAh_-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-2" value="Unit Attack Unit(s)" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="155" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RXCkCdVxwRV_W-t0KAh_-3" target="RXCkCdVxwRV_W-t0KAh_-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-3" value="Unit Join&amp;nbsp;&lt;div&gt;Team [X]&lt;/div&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="305" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RXCkCdVxwRV_W-t0KAh_-4" target="RXCkCdVxwRV_W-t0KAh_-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-4" value="Pass Unit Attack (and their stats)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="155" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RXCkCdVxwRV_W-t0KAh_-6" target="RXCkCdVxwRV_W-t0KAh_-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-6" value="Pass The Type of Attack Selected" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="155" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RXCkCdVxwRV_W-t0KAh_-8" target="RXCkCdVxwRV_W-t0KAh_-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-8" value="Pass the Unit(s) being hit by the attack" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="155" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-10" value="Run the damage through and queue up any following attacks if needed" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="155" y="560" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RXCkCdVxwRV_W-t0KAh_-12" target="RXCkCdVxwRV_W-t0KAh_-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-12" value="Pass Unit Speaking" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="5" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RXCkCdVxwRV_W-t0KAh_-14" target="RXCkCdVxwRV_W-t0KAh_-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-14" value="Pass Text they want to say" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="5" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RXCkCdVxwRV_W-t0KAh_-16" target="RXCkCdVxwRV_W-t0KAh_-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-16" value="Pass if unit is primary, or secondary" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="5" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-88" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RXCkCdVxwRV_W-t0KAh_-18" target="RXCkCdVxwRV_W-t0KAh_-87">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-18" value="Primary = Left&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Secondary = Right&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry y="550" width="130" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RXCkCdVxwRV_W-t0KAh_-20" target="RXCkCdVxwRV_W-t0KAh_-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-20" value="Pass Unit Converting" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="305" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-22" value="Pass Owner Of Unit&lt;div&gt;(Player, NPC)&lt;/div&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="305" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-26" value="Brain - (Player, NPC)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" width="300" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-27" value="- Name Of Commander" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-26">
+          <mxGeometry y="30" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-28" value="- List of Units Commanding" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-26">
+          <mxGeometry y="60" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-29" value="- Relationship to Player {Ally, Neutral, Enemy}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-26">
+          <mxGeometry y="90" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-30" value="- Career Stats (battles, units lost, etc...)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-26">
+          <mxGeometry y="120" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-32" value="- Hidden Stats (???)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-26">
+          <mxGeometry y="150" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-31" value="- (if NPC) strategy {aggressive, defensive, passive}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-26">
+          <mxGeometry y="180" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-109" value="- (if NPC) condition {healthy, scared, fight or flight, }" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-26">
+          <mxGeometry y="210" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-33" value="Unit" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1015" width="360" height="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-64" value="VISIBLE STATS" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="30" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-34" value="- Name Of Unit" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="60" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-35" value="- Visual Icon" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="90" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-36" value="- Visual Model / Art" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="120" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-37" value="- Class (assigned, but changeable by player)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="150" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-38" value="- Level (affected by Experience Points)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="180" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-39" value="- Experience Points (affected by being in battles)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="210" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-40" value="- Health Points (affected by CON)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="240" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-41" value="- Speed (affected by DEX)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="270" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-42" value="- Strength (physical damage)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="300" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-43" value="- Dexterity (speed)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="330" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-44" value="- Constitution (health / defense)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="360" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-45" value="- Wisdom (magic damage)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="390" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-46" value="- Charisma (luck, crit chance, persuasion)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="420" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-47" value="- Range (distance they can attack from)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="450" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-63" value="EQUIPMENT" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="480" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-65" value="- SLOT 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="510" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-66" value="- SLOT 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="540" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-67" value="- SLOT 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="570" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-75" value="ABILITIES" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="600" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-76" value="- Ability 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="630" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-77" value="- Ability 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="660" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-78" value="- Ability 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="690" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-68" value="HIDDEN INFORMATION" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="720" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-71" value="- List of Units This Unit Knows {requires fight or talk to}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="750" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-69" value="- List of Units This Unit Likes" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="780" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-70" value="- List of Units This Unit Hates" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="810" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-72" value="- List of Units Killed" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="840" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-73" value="- List of Units Fought" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="870" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-74" value="HIDDEN DIALOGUE {with tags like &quot;aggro&quot;, &quot;unsure&quot;, &quot;charm&quot;}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="900" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-79" value="- Lines when wins fight against {Use Hidden Info as Context}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="930" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-81" value="- Lines when kills unit in fight {Use Hidden Info as Context}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="960" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-82" value="- Lines when unit enters a battle {conversation, war cries, etc}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="990" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-83" value="- Lines to respond {die, lose, war cries, conversation, etc}" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-33">
+          <mxGeometry y="1020" width="360" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-87" value="Scan other units and have them reply based on their stat" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="5" y="795" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-91" value="Battle &amp;amp; Map Manager" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1415" width="300" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-92" value="- Visual Assets To Load" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-91">
+          <mxGeometry y="30" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-93" value="- Obstacles / Towns / Unique conditions (like weather)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-91">
+          <mxGeometry y="60" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-94" value="- Players and NPC Brains" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-91">
+          <mxGeometry y="90" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-98" value="- Rolling Units Into A Turn Order / Groups" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-91">
+          <mxGeometry y="120" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-95" value="- Spawning Each Brain&#39;s Units (if active)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-91">
+          <mxGeometry y="150" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-96" value="- Dialogue to read, then which character fits the stat most" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-91">
+          <mxGeometry y="180" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-97" value="- The condition(s) for the battle / map to win" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="RXCkCdVxwRV_W-t0KAh_-91">
+          <mxGeometry y="210" width="300" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-100" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="RXCkCdVxwRV_W-t0KAh_-101" target="RXCkCdVxwRV_W-t0KAh_-103" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-101" value="War Choice Machine" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-102" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="RXCkCdVxwRV_W-t0KAh_-103" target="RXCkCdVxwRV_W-t0KAh_-104" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-103" value="Pass Brain (and strategy)" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-106" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RXCkCdVxwRV_W-t0KAh_-104" target="RXCkCdVxwRV_W-t0KAh_-105">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-104" value="Pass Units Available" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-108" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="RXCkCdVxwRV_W-t0KAh_-105" target="RXCkCdVxwRV_W-t0KAh_-107">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-105" value="READ Battle Map Data for other units" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RXCkCdVxwRV_W-t0KAh_-107" value="Decision Logic for what to do based Condition and Strategy" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="560" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
