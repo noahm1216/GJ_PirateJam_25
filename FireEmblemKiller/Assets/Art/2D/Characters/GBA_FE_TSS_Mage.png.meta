@@ -1,0 +1,1574 @@
+fileFormatVersion: 2
+guid: cd7add055cf90744b90d2bf94d49c680
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 455
+        width: 28
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81237a40cbe6c047843ff4e2c53a918
+      internalID: 1877007591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_2
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 455
+        width: 28
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db44d6bc47cf8444ca8581df20630b9f
+      internalID: -287252509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_4
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 395
+        width: 28
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86f241038aa730544a4e0fa5e539c817
+      internalID: 800228266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_5
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 395
+        width: 29
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 470510b5a99d4cf46b02a056302ce701
+      internalID: -1292521069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_6
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 395
+        width: 31
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5039322af870bb8488d972935adb26ab
+      internalID: -1703248189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_7
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 395
+        width: 30
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23bf8c0ca97320f4cb1b6c8f8f8e7ab1
+      internalID: -1555104380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_8
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 395
+        width: 29
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f03d04a46cd9de418be9d6167e551ec
+      internalID: -1435299224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_9
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 395
+        width: 28
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afc9c952459dcc946a37a8618467b92f
+      internalID: -1494786272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_10
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 395
+        width: 31
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ccae8e284258044c93ac552beeaeb94
+      internalID: 1086072469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_11
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 395
+        width: 32
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c314dcb7f6fdf6b438ea282032737023
+      internalID: -1058935529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_12
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 395
+        width: 39
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: add2ef8fe5d23964fbcfcaafccb8482a
+      internalID: -467986613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_13
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 351
+        width: 29
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc68ef2a5e2b1ce4ca13553a77b52cb7
+      internalID: 1298257730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_14
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 351
+        width: 29
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e99ee2c8eab747e4bbaa8199d3432982
+      internalID: -347321814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_15
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 351
+        width: 32
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99f6a13e2c155b649960a1217ec150e5
+      internalID: -1350502339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_16
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 351
+        width: 31
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a7bc7c6a36649e4ea515be0b90f419f
+      internalID: -542206087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_17
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 351
+        width: 30
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d63b1aa7bed3ebb4cbd620670834799a
+      internalID: -1392146802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_18
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 351
+        width: 30
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90f7f1479357e1c40becc9ca2918969e
+      internalID: -1921288850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_19
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 351
+        width: 32
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 585320336f27d864da2c85ffc6706e50
+      internalID: 1488972610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_20
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 351
+        width: 32
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe303a02478fcc14e8fb89355394d2b1
+      internalID: 1611394324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_21
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 351
+        width: 29
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67dcc0f76b7f144bb2c85e66e1f7903
+      internalID: -404761007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_22
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 305
+        width: 31
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd5a0946a855124e9e6ae70e443a79f
+      internalID: -1945393948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_23
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 305
+        width: 27
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55b7a162dbbe40843805ba268ae1a1d0
+      internalID: 1902221787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_24
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 305
+        width: 24
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c292a7545e26a7418dacb3ac405b3e0
+      internalID: 1356984540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_25
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 305
+        width: 24
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578f051ef89bdd2408fc8f4faa582af4
+      internalID: -784671356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_26
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 304
+        width: 29
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4f3ea830e1cfc840998e852a6241b0e
+      internalID: 952289116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_28
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 232
+        width: 28
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d15283d6c799fe45a1658faf3f1cc93
+      internalID: -1926834483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_29
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 232
+        width: 31
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a2fd942a3894a45903a4fa060701f4
+      internalID: -204580104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_30
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 232
+        width: 32
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c89b6d0693c9cdf4d937f4341c5fd5db
+      internalID: -800853235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_31
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 232
+        width: 39
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 721475a95e25bb64ab92bb4df6b1b55a
+      internalID: 1052157923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_32
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 232
+        width: 29
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d1dd9e1f09723341a6e3e17f77c0c01
+      internalID: -1812399041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_33
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 232
+        width: 29
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b7d36ac20f1f2f419afc3fafca9f98a
+      internalID: 701119210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_34
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 232
+        width: 32
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ae354a16a8a65c4c8f81a50f3b64996
+      internalID: 548257934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_35
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 232
+        width: 31
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 488f73539d21a0a4fbdd9f1dbdf5115c
+      internalID: -2082794523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_36
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 232
+        width: 30
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10d2841faa699b9448103f7fffa2fe3e
+      internalID: 460901004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_37
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 188
+        width: 30
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 434f7b84ed16e66489bfa5c3338f2afa
+      internalID: -130154351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_38
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 188
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc75b77f230885645908e2c23b25c828
+      internalID: 986558203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_39
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 188
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc5fa95fbb516c43beb0134268acc35
+      internalID: 547908841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_40
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 188
+        width: 29
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e8b1aa9b9281a4cbb5ae5367db9f33
+      internalID: -450886339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_41
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 188
+        width: 28
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d990e31bf7d53e64ea1d9ba172f702ef
+      internalID: -608619193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_42
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 188
+        width: 31
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6086af3d5eeacee4b8e9e9f12abf0d2d
+      internalID: 660374518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_43
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 188
+        width: 27
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb2468ac973448448a367144be21f368
+      internalID: -708602028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_44
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 188
+        width: 26
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d81bebd8a1d4c014f8b8e8f4efd14b00
+      internalID: -184140602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_45
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 188
+        width: 29
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab2187476b935ba46848485b869e2080
+      internalID: 1047749538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_47
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 120
+        width: 28
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f42672876fce047b53a873f545dbed
+      internalID: -1309980802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_48
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 120
+        width: 31
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de74b37e15b53a4c8d806a862f04def
+      internalID: -1970565220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_49
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 120
+        width: 27
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 146782bc9770e614ab6b4c8c606b304e
+      internalID: 1870601472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_50
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 120
+        width: 26
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5b7fa37a2c12954787698532ae4b0dd
+      internalID: -1271446126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_51
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 120
+        width: 29
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c078d7f9b8662e6408a25e0c88942766
+      internalID: 446903079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_52
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 120
+        width: 36
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 866558462bc4d7e42b10a18b0c79f09b
+      internalID: 1959413952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_53
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 120
+        width: 34
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b11dbd5c34f594a8022bb9ee78d38e
+      internalID: -1220514350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_54
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 120
+        width: 38
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c509a11de1eff4e96cc73a030cf904
+      internalID: 891838025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_55
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 120
+        width: 40
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e93e050a24b2c5469497d691cb1afc2
+      internalID: -899536261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_56
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 77
+        width: 39
+        height: 38
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80de037148cf47f47a9f7ac63dba4b9a
+      internalID: -424532020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_57
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 77
+        width: 40
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbffeab25c7996146b3ea074d744ea98
+      internalID: 565685333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_58
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 77
+        width: 40
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc5401f5a99f0d344ba63416531a0119
+      internalID: 958063240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_59
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 77
+        width: 40
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15240cb5385c6974db82d969ea73870b
+      internalID: -832570159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_60
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 77
+        width: 41
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21b318ab83749a5479e8ceb9edbac73f
+      internalID: -685071033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_61
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 77
+        width: 39
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c36c117f8d7a9aa47ad78dc15123f409
+      internalID: -473158510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_62
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 77
+        width: 33
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a61e5b68205811b469715b43d72de772
+      internalID: 508013443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_63
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 77
+        width: 28
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40bf2782d0116124fb29ee82fa1188b5
+      internalID: 2137266621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_64
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 37
+        width: 24
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7725277baad6fb546a03a2d464ddbdd7
+      internalID: -72664887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_65
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 37
+        width: 23
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6a18aa41d4951e4b9aee6989e924914
+      internalID: -856483211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_66
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 37
+        width: 26
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c0d767efda00e4f8bb289479174247
+      internalID: -686815134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_67
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 37
+        width: 31
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 993279978f6f57146b1af04788d53ce5
+      internalID: 1027508459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GBA_FE_TSS_Mage_68
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 37
+        width: 28
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13099edbef170fd42b05b5cbb7ef7ef7
+      internalID: -1740857110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a1de02668619c9f4091ea5de08a823c3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GBA_FE_TSS_Mage_0: -221361113
+      GBA_FE_TSS_Mage_1: 1877007591
+      GBA_FE_TSS_Mage_10: 1086072469
+      GBA_FE_TSS_Mage_11: -1058935529
+      GBA_FE_TSS_Mage_12: -467986613
+      GBA_FE_TSS_Mage_13: 1298257730
+      GBA_FE_TSS_Mage_14: -347321814
+      GBA_FE_TSS_Mage_15: -1350502339
+      GBA_FE_TSS_Mage_16: -542206087
+      GBA_FE_TSS_Mage_17: -1392146802
+      GBA_FE_TSS_Mage_18: -1921288850
+      GBA_FE_TSS_Mage_19: 1488972610
+      GBA_FE_TSS_Mage_2: -287252509
+      GBA_FE_TSS_Mage_20: 1611394324
+      GBA_FE_TSS_Mage_21: -404761007
+      GBA_FE_TSS_Mage_22: -1945393948
+      GBA_FE_TSS_Mage_23: 1902221787
+      GBA_FE_TSS_Mage_24: 1356984540
+      GBA_FE_TSS_Mage_25: -784671356
+      GBA_FE_TSS_Mage_26: 952289116
+      GBA_FE_TSS_Mage_27: -31635820
+      GBA_FE_TSS_Mage_28: -1926834483
+      GBA_FE_TSS_Mage_29: -204580104
+      GBA_FE_TSS_Mage_3: 1106150983
+      GBA_FE_TSS_Mage_30: -800853235
+      GBA_FE_TSS_Mage_31: 1052157923
+      GBA_FE_TSS_Mage_32: -1812399041
+      GBA_FE_TSS_Mage_33: 701119210
+      GBA_FE_TSS_Mage_34: 548257934
+      GBA_FE_TSS_Mage_35: -2082794523
+      GBA_FE_TSS_Mage_36: 460901004
+      GBA_FE_TSS_Mage_37: -130154351
+      GBA_FE_TSS_Mage_38: 986558203
+      GBA_FE_TSS_Mage_39: 547908841
+      GBA_FE_TSS_Mage_4: 800228266
+      GBA_FE_TSS_Mage_40: -450886339
+      GBA_FE_TSS_Mage_41: -608619193
+      GBA_FE_TSS_Mage_42: 660374518
+      GBA_FE_TSS_Mage_43: -708602028
+      GBA_FE_TSS_Mage_44: -184140602
+      GBA_FE_TSS_Mage_45: 1047749538
+      GBA_FE_TSS_Mage_46: 207610098
+      GBA_FE_TSS_Mage_47: -1309980802
+      GBA_FE_TSS_Mage_48: -1970565220
+      GBA_FE_TSS_Mage_49: 1870601472
+      GBA_FE_TSS_Mage_5: -1292521069
+      GBA_FE_TSS_Mage_50: -1271446126
+      GBA_FE_TSS_Mage_51: 446903079
+      GBA_FE_TSS_Mage_52: 1959413952
+      GBA_FE_TSS_Mage_53: -1220514350
+      GBA_FE_TSS_Mage_54: 891838025
+      GBA_FE_TSS_Mage_55: -899536261
+      GBA_FE_TSS_Mage_56: -424532020
+      GBA_FE_TSS_Mage_57: 565685333
+      GBA_FE_TSS_Mage_58: 958063240
+      GBA_FE_TSS_Mage_59: -832570159
+      GBA_FE_TSS_Mage_6: -1703248189
+      GBA_FE_TSS_Mage_60: -685071033
+      GBA_FE_TSS_Mage_61: -473158510
+      GBA_FE_TSS_Mage_62: 508013443
+      GBA_FE_TSS_Mage_63: 2137266621
+      GBA_FE_TSS_Mage_64: -72664887
+      GBA_FE_TSS_Mage_65: -856483211
+      GBA_FE_TSS_Mage_66: -686815134
+      GBA_FE_TSS_Mage_67: 1027508459
+      GBA_FE_TSS_Mage_68: -1740857110
+      GBA_FE_TSS_Mage_7: -1555104380
+      GBA_FE_TSS_Mage_8: -1435299224
+      GBA_FE_TSS_Mage_9: -1494786272
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
