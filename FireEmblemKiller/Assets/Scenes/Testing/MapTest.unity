@@ -152,11 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ad084bf345f06429c639c25ff69e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: Big Brain Human
+  playerName: Blue Boi Humans
   ownedByAHumanPlayer: 0
   myTurn: 0
   myUnitPrefabs:
   - {fileID: 8013205235207748160, guid: 3de397e938d5bc24886e6899b8dd77a7, type: 3}
+  - {fileID: 8013205235207748160, guid: 31271de32111de54596c2daea0f0c245, type: 3}
 --- !u!4 &14480374
 Transform:
   m_ObjectHideFlags: 0
@@ -560,11 +561,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ad084bf345f06429c639c25ff69e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: Dummy Dummy NPC
+  playerName: Earth Rangers
   ownedByAHumanPlayer: 0
   myTurn: 0
   myUnitPrefabs:
   - {fileID: 2547011973050019379, guid: 9a881096ce3ade94cbce0c13cc72171b, type: 3}
+  - {fileID: 2547011973050019379, guid: 24f89c7df852506468fa0f35fe5d18a6, type: 3}
 --- !u!4 &1691305828
 Transform:
   m_ObjectHideFlags: 0

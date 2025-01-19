@@ -42,6 +42,9 @@ public class ActorBrain : MonoBehaviour
 
     public void CycleMyUnits()
     {
+        if (ManagerMapHandler.Instance)
+            ManagerMapHandler.Instance.ResetTraversableTileVisuals();
+
         if (unitsImCommanding.Count == 0)
             return;
         unitsImCommanding[unitSelected].unitIsSelected = false;
@@ -51,7 +54,28 @@ public class ActorBrain : MonoBehaviour
             unitSelected = 0;
 
         unitsImCommanding[unitSelected].unitIsSelected = true;
-        MoveCameraTo(unitsImCommanding[unitSelected].transform); // Also need to set selected tile to the one our selected unit is standing on
+        bool foundTile = false;
+        int unitTileId = 0;
+        if (unitsImCommanding[unitSelected].tileImOn != null && ManagerMapHandler.Instance)// Set selected tile to the one our selected unit is standing on
+        {            
+            for (int i = 0; i < ManagerMapHandler.Instance.gridTilesGenerated.Count; i++)
+                if (ManagerMapHandler.Instance.gridTilesGenerated[i] == unitsImCommanding[unitSelected].tileImOn)
+                {
+                    unitTileId = i;
+                    unitTileId = (unitTileId - tileSelected);
+                    foundTile = true;                   
+                    break;
+                }            
+        }
+
+        if (foundTile)
+            ChangeTileSelected(unitTileId);
+        else
+            MoveCameraTo(unitsImCommanding[unitSelected].transform);
+
+        if (ManagerMapHandler.Instance)
+            ManagerMapHandler.Instance.ShowTraversableTiles(unitsImCommanding[unitSelected].tileImOn.transform, unitsImCommanding[unitSelected].thisUnitData.speed);
+
     }
 
     public void ChangeTileSelected(int _tileJump)
@@ -59,14 +83,14 @@ public class ActorBrain : MonoBehaviour
         if (!ManagerMapHandler.Instance || ManagerMapHandler.Instance.gridTilesGenerated.Count == 0)
             return;
 
-        ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].isSelected = false;
+        ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].ChangeSelection(false);
         tileSelected += _tileJump;
         if (tileSelected >= ManagerMapHandler.Instance.gridTilesGenerated.Count)
             tileSelected -= ManagerMapHandler.Instance.gridTilesGenerated.Count;
         if (tileSelected < 0)
             tileSelected += ManagerMapHandler.Instance.gridTilesGenerated.Count;
 
-        ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].isSelected = true;
+        ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].ChangeSelection(true);
         MoveCameraTo(ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].transform);
     }
 
@@ -98,7 +122,11 @@ public class ActorBrain : MonoBehaviour
     
     public void CheckInputs()
     {
-        if (Input.GetKeyUp(KeyCode.Return))
+        Debug.Log("Press 'End' key to end your turn");
+        if (Input.GetKeyUp(KeyCode.End))
+            EndMyTurn();
+
+        if (Input.GetKeyUp(KeyCode.Return) || Input.GetKeyUp(KeyCode.Space)) // open context menu for us to select
             EndMyTurn();
 
         if (Input.GetKeyUp(KeyCode.Tab))

@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class MapTileData : MonoBehaviour
 {
-    public bool isWalkable;
     public UnitCapsule unitOnThisTile;
-    public bool isSelected;
-    public GameObject selectedIndicator, occupiedIndicator;
+    public bool isWalkable, isSelected, isInRange;    
+    public GameObject selectedIndicator, occupiedIndicator, inRangeIndicator;
     public bool checkForTriggers;
 
     private float timeSpawned, timeToCheck = 2f;
@@ -16,34 +15,55 @@ public class MapTileData : MonoBehaviour
     private void Start()
     {
         timeSpawned = Time.time;
+        isWalkable = true;
+        ChangeWalkable(isWalkable);
+        ChangeInRange(isInRange);
+        ChangeSelection(isSelected);
+        
     }
 
     public bool TileIsFree()
-    {        
+    {
+        ChangeWalkable(isWalkable); // just updates the visuals if needed
+
         if (isWalkable && unitOnThisTile == null)
             return true;
         else
             return false;
     }
 
-    public void LateUpdate()
+    public void ChangeSelection(bool _isSelected)
     {
-        if (occupiedIndicator)
-            occupiedIndicator.SetActive(isWalkable && unitOnThisTile); // eventually this should just be a function called from the Brain once (passing if we are selecting or not)
+        isSelected = _isSelected;
         if (selectedIndicator)
-            selectedIndicator.SetActive(isSelected); // eventually this should just be a function called from the Brain once (passing if we are selecting or not)
+            selectedIndicator.SetActive(isSelected);
     }
 
-    public void OnTriggerStay(Collider trig)
+    public void ChangeWalkable(bool _isWalkable)
     {
-        if (Time.time > timeSpawned + timeToCheck)
+        isWalkable = _isWalkable;
+
+        if (occupiedIndicator)
+            occupiedIndicator.SetActive(isWalkable && unitOnThisTile);
+    }
+
+    public void ChangeInRange(bool _isRange)
+    {
+        isInRange = _isRange;
+        if (inRangeIndicator)
+            inRangeIndicator.SetActive(isInRange);
+    }   
+
+    public void OnTriggerStay(Collider trig) // right now checking for the first X seconds if we are colliding with ANYTHING (units dont have collisions so we are checking for environment collisions)
+    {
+        if (Time.time > timeSpawned + timeToCheck) // ideally we want to run this check one time at spawn if the environment is clipping with a tile... we could also spawn the tiles and project them down onto the environment normals... depends
             checkForTriggers = false;
 
         if (!checkForTriggers)
             return;        
 
         print($"{transform.name} - Trig With - {trig.name}");
-        isWalkable = true;
+        ChangeWalkable(true);
     }
 
     public void OnTriggerExit(Collider trig)
@@ -51,7 +71,7 @@ public class MapTileData : MonoBehaviour
         if (!checkForTriggers)
             return;
 
-        isWalkable = false;
+        ChangeWalkable(false);
     }
 
 }

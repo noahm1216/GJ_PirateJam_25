@@ -47,11 +47,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a5bc655bab2fd4baba265c4b769548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isWalkable: 1
   unitOnThisTile: {fileID: 0}
+  isWalkable: 1
   isSelected: 0
+  isInRange: 0
   selectedIndicator: {fileID: 6131761010231079078}
   occupiedIndicator: {fileID: 9149665587126101619}
+  inRangeIndicator: {fileID: 5762500371539255390}
   checkForTriggers: 0
 --- !u!65 &8022088834029089415
 BoxCollider:
@@ -172,6 +174,12 @@ PrefabInstance:
 --- !u!4 &438160354713395044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4892997477668217211, guid: 4a68c4e946e42bd4fa250766a02caf77,
+    type: 3}
+  m_PrefabInstance: {fileID: 5040587695174336031}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5762500371539255390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 723742825819496001, guid: 4a68c4e946e42bd4fa250766a02caf77,
     type: 3}
   m_PrefabInstance: {fileID: 5040587695174336031}
   m_PrefabAsset: {fileID: 0}

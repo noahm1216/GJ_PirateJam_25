@@ -96,7 +96,7 @@ public class ManagerMapHandler : MonoBehaviour
         }
 
         if (totalUnitsTryingToSpawn > gridTilesGenerated.Count)
-        { Debug.Log($"CANCELLING: Tried to spawn {totalUnitsTryingToSpawn} units onto {gridTilesGenerated.Count} tiles"); return; }
+        { Debug.Log($"CANCELLING: Too Many Units - Tried to spawn {totalUnitsTryingToSpawn} units onto {gridTilesGenerated.Count} tiles"); return; }
 
                 
         foreach (ActorBrain brain in sampleBrainPlayers) // spawn the units
@@ -123,6 +123,7 @@ public class ManagerMapHandler : MonoBehaviour
                     print($"Tile: {tile.transform.name} - is Free For: {unit.thisUnitData.unitName}");
                     unit.transform.position = tile.transform.position;
                     tile.unitOnThisTile = unit;
+                    unit.tileImOn = tile;
                     break;
                 }
             }
@@ -139,7 +140,7 @@ public class ManagerMapHandler : MonoBehaviour
             return;
 
         if (currentPlayersTurn == null)
-        { currentPlayersTurn = sampleBrainPlayers[0]; currentPlayersTurn.myTurn = true; }
+        { currentPlayersTurn = sampleBrainPlayers[0]; currentPlayersTurn.myTurn = true; currentPlayersTurn.CycleMyUnits(); }
         else
         {
             for (int i = 0; i < sampleBrainPlayers.Count; i++)
@@ -154,6 +155,7 @@ public class ManagerMapHandler : MonoBehaviour
                         currentPlayersTurn = sampleBrainPlayers[i + 1];
 
                     currentPlayersTurn.myTurn = true;
+                    currentPlayersTurn.CycleMyUnits();
                 }
             }
         }
@@ -162,12 +164,24 @@ public class ManagerMapHandler : MonoBehaviour
 
     public void ShowTraversableTiles(Transform _startPoint, float _acceptableDistance)
     {
-        // actor brain calls this to show all tiles will a color.
-        // if a tile is within range to our start point it gets Blue || otherwise red
+        if (gridTilesGenerated.Count == 0)
+            return;
+
+        foreach (MapTileData tile in gridTilesGenerated)
+        {
+            float dist = Vector2.Distance(tile.transform.position, _startPoint.position);
+            tile.ChangeInRange(tile.TileIsFree() && dist <= _acceptableDistance);
+        }
 
     }
     public void ResetTraversableTileVisuals()
     {
+        if (gridTilesGenerated.Count == 0)
+            return;
 
+        foreach (MapTileData tile in gridTilesGenerated)
+        {
+            tile.ChangeInRange(false);
+        }
     }
 }

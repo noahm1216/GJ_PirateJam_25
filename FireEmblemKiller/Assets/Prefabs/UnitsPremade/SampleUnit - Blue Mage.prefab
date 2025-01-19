@@ -49,14 +49,15 @@ MonoBehaviour:
   unitIsSelected: 0
   unitActionsFinished: 0
   selectedIndicator: {fileID: 4453411722120374487}
+  tileImOn: {fileID: 0}
   thisUnitData:
-    unitName: 
-    unitIcon: {fileID: 0}
+    unitName: Jenna
+    unitIcon: {fileID: 1098134683, guid: faddce203184eee4e86232b1863c7e1a, type: 3}
     unitPrefab: {fileID: 0}
     level: 0
     experience: {x: 0, y: 0}
     healthPoints: {x: 0, y: 0}
-    speed: 0
+    speed: 4
     range: 0
     thisUnitsStats:
       strength: 0

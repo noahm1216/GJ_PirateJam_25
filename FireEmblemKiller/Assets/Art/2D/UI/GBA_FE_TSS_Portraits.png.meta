@@ -164,6 +164,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Portraits_PurpleGuy_A
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 202
+        width: 75
+        height: 75
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda99a05ac2905b43891d24851261ab3
+      internalID: 1098134683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portraits_BrownGirl_A
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 822
+        width: 75
+        height: 75
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4be91244c7342314ea9e15d2775514b3
+      internalID: -1158999127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -176,7 +218,9 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Portraits_BlueGirl_A: -1172378453
+      Portraits_BrownGirl_A: -1158999127
       Portraits_BrownGuy_A: 1748690526
+      Portraits_PurpleGuy_A: 1098134683
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
