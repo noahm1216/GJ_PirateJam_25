@@ -192,4 +192,9 @@ public class ManagerMapHandler : MonoBehaviour
             tile.ChangeInRange(false);
         }
     }
+
+    public void SendHPChangToTarget(int _change, List<UnitCapsule> _unitsAffected)
+    {
+        // do math here
+    }
 }
