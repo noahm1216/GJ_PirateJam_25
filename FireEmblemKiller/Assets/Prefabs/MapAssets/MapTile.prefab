@@ -48,22 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWalkable: 1
-  unitOnThisTile:
-    unitName: 
-    unitIcon: {fileID: 0}
-    unitPrefab: {fileID: 0}
-    level: 0
-    experience: {x: 0, y: 0}
-    healthPoints: {x: 0, y: 0}
-    speed: 0
-    range: 0
-    thisUnitsStats:
-      strength: 0
-      dexterity: 0
-      constitution: 0
-      wisdom: 0
-      charisma: 0
-    thisUnitsEquipment: []
+  unitOnThisTile: {fileID: 0}
+  isSelected: 0
+  selectedIndicator: {fileID: 6131761010231079078}
+  occupiedIndicator: {fileID: 9149665587126101619}
   checkForTriggers: 0
 --- !u!65 &8022088834029089415
 BoxCollider:
@@ -184,6 +172,18 @@ PrefabInstance:
 --- !u!4 &438160354713395044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4892997477668217211, guid: 4a68c4e946e42bd4fa250766a02caf77,
+    type: 3}
+  m_PrefabInstance: {fileID: 5040587695174336031}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6131761010231079078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1219252755256561337, guid: 4a68c4e946e42bd4fa250766a02caf77,
+    type: 3}
+  m_PrefabInstance: {fileID: 5040587695174336031}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9149665587126101619 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4254185940103616620, guid: 4a68c4e946e42bd4fa250766a02caf77,
     type: 3}
   m_PrefabInstance: {fileID: 5040587695174336031}
   m_PrefabAsset: {fileID: 0}

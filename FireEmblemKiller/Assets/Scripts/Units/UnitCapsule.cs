@@ -6,13 +6,21 @@ public class UnitCapsule : MonoBehaviour
 {
     // nothing yet but soon...
 
-
+    public bool unitIsSelected;
+    public bool unitActionsFinished;
+    public GameObject selectedIndicator;
     public UnitData thisUnitData; // this single unit data (might want to have a different script)
 
     // update / upgrade stats
     // switching classes
     // and more things a unit might want to do
 
+
+    public void LateUpdate()
+    {
+        if (selectedIndicator)
+            selectedIndicator.SetActive(unitIsSelected); // eventually this should just be a function called from the Brain once (passing if we are selecting or not)
+    }
 }
 
 

@@ -9,6 +9,7 @@ using UnityEngine;
 /// </summary>
 public class ManagerMapHandler : MonoBehaviour
 {
+    public static ManagerMapHandler Instance { get; private set; }
 
     public Transform gridTilePrefab; // these are 1x1 meter units
     private Transform gridTileParent; // this is generated at runtime
@@ -16,23 +17,36 @@ public class ManagerMapHandler : MonoBehaviour
 
     [Header("TESTING\n___________")]
     public bool spawnMapOnStart = false;
-    public Vector2 mapSize = new Vector2(10, 10);
+    public Vector2Int mapSize = new Vector2Int(10, 10);
     public Vector3 mapPos;
     public bool posIsCenter = true;
 
     public List<ActorBrain> sampleBrainPlayers = new List<ActorBrain>(); // these will be the brain / inputs and commands of players
     public List<UnitCapsule> spawnedUnits = new List<UnitCapsule>(); // the units we'll spawns
 
+    private ActorBrain currentPlayersTurn; // the current player making moves
+
+
+    private void Awake()
+    {        
+        if (Instance != null && Instance != this)
+            Destroy(this);
+        else
+            Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         if (spawnMapOnStart)
             InitializeGrid(mapSize, mapPos, posIsCenter);
+
     }
 
-    public void InitializeGrid(Vector2 _gridDimension, Vector3 _gridStartPos, bool _startPosIsCenter)
+    public void InitializeGrid(Vector2Int _gridDimension, Vector3 _gridStartPos, bool _startPosIsCenter)
     {
+        Debug.Log("Creating Grid / Tiles");
+
         if (_gridDimension == Vector2.zero || !gridTilePrefab)
             return;
 
@@ -48,7 +62,7 @@ public class ManagerMapHandler : MonoBehaviour
             {
                 Transform tileClone = Instantiate(gridTilePrefab);
                 tileClone.name = gridTilePrefab.name + $"_{gridTilesGenerated.Count}";
-                tileClone.transform.position = _gridStartPos + new Vector3(1 * x, 0, 1 * z);
+                tileClone.transform.position = _gridStartPos + new Vector3(1 * x, 0, -1 * z);
                 tileClone.SetParent(gridTileParent);
                 MapTileData dataRef = null;
                 tileClone.TryGetComponent(out dataRef);
@@ -59,8 +73,8 @@ public class ManagerMapHandler : MonoBehaviour
 
         if (_startPosIsCenter)
         {
-            gridTileParent.position += (new Vector3(0.5f, 0, 0.5f)); // otherwise it will be 0.5f off center
-            gridTileParent.position -= new Vector3(_gridDimension.x / 2, 0, _gridDimension.y / 2);
+            gridTileParent.position += (new Vector3(0.5f, 0, -0.5f)); // otherwise it will be 0.5f off center
+            gridTileParent.position -= new Vector3(_gridDimension.x / 2, 0, _gridDimension.y / -2);
         }
 
         SpawnUnits(); // handle Units
@@ -70,6 +84,7 @@ public class ManagerMapHandler : MonoBehaviour
     // get the brains we'll be using for this map and spawn their troops
     public void SpawnUnits()
     {
+        Debug.Log("Spawning Units");
         if (sampleBrainPlayers.Count == 0)
             return;
 
@@ -90,6 +105,7 @@ public class ManagerMapHandler : MonoBehaviour
             {
                 Transform unitClone = Instantiate(brain.myUnitPrefabs[i]);
                 spawnedUnits.Add(unitClone.GetComponent<UnitCapsule>());
+                brain.AddOneUnitToList(unitClone.GetComponent<UnitCapsule>());
             }
         }
 
@@ -111,5 +127,47 @@ public class ManagerMapHandler : MonoBehaviour
                 }
             }
         }
+        NextPlayersTurn(); // assign whose turn it is
+    }
+
+
+    public void NextPlayersTurn()
+    {
+        Debug.Log("Assigning Next Player's Turn");
+
+        if (sampleBrainPlayers.Count == 0)
+            return;
+
+        if (currentPlayersTurn == null)
+        { currentPlayersTurn = sampleBrainPlayers[0]; currentPlayersTurn.myTurn = true; }
+        else
+        {
+            for (int i = 0; i < sampleBrainPlayers.Count; i++)
+            {
+                if (currentPlayersTurn == sampleBrainPlayers[i])
+                {
+                    currentPlayersTurn.myTurn = false;
+
+                    if (i == sampleBrainPlayers.Count - 1)
+                        currentPlayersTurn = sampleBrainPlayers[0];
+                    else
+                        currentPlayersTurn = sampleBrainPlayers[i + 1];
+
+                    currentPlayersTurn.myTurn = true;
+                }
+            }
+        }
+
+    }
+
+    public void ShowTraversableTiles(Transform _startPoint, float _acceptableDistance)
+    {
+        // actor brain calls this to show all tiles will a color.
+        // if a tile is within range to our start point it gets Blue || otherwise red
+
+    }
+    public void ResetTraversableTileVisuals()
+    {
+
     }
 }
