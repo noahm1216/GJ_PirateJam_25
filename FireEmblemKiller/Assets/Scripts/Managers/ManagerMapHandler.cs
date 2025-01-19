@@ -12,7 +12,7 @@ public class ManagerMapHandler : MonoBehaviour
     public static ManagerMapHandler Instance { get; private set; }
 
     public Transform gridTilePrefab; // these are 1x1 meter units
-    private Transform gridTileParent; // this is generated at runtime
+    private Transform gridTileParent; // this is generated at runtime to hold tiles
     public List<MapTileData> gridTilesGenerated = new List<MapTileData>();
 
     [Header("TESTING\n___________")]
@@ -23,6 +23,7 @@ public class ManagerMapHandler : MonoBehaviour
 
     public List<ActorBrain> sampleBrainPlayers = new List<ActorBrain>(); // these will be the brain / inputs and commands of players
     public List<UnitCapsule> spawnedUnits = new List<UnitCapsule>(); // the units we'll spawns
+    private Transform spawnedUnitsParent; // this is generated at runtime to hold units
 
     private ActorBrain currentPlayersTurn; // the current player making moves
 
@@ -89,7 +90,6 @@ public class ManagerMapHandler : MonoBehaviour
             return;
 
         int totalUnitsTryingToSpawn = 0;
-
         foreach (ActorBrain brain in sampleBrainPlayers) // get the number of units and check if we have enough spots
         {
             totalUnitsTryingToSpawn += brain.myUnitPrefabs.Count;
@@ -98,7 +98,11 @@ public class ManagerMapHandler : MonoBehaviour
         if (totalUnitsTryingToSpawn > gridTilesGenerated.Count)
         { Debug.Log($"CANCELLING: Too Many Units - Tried to spawn {totalUnitsTryingToSpawn} units onto {gridTilesGenerated.Count} tiles"); return; }
 
-                
+        if (!spawnedUnitsParent)
+            spawnedUnitsParent = new GameObject("SpawnedUnitsParent").transform;
+        spawnedUnitsParent.SetParent(transform);
+
+
         foreach (ActorBrain brain in sampleBrainPlayers) // spawn the units
         {
             for(int i =0; i < brain.myUnitPrefabs.Count; i++)
@@ -106,6 +110,7 @@ public class ManagerMapHandler : MonoBehaviour
                 Transform unitClone = Instantiate(brain.myUnitPrefabs[i]);
                 spawnedUnits.Add(unitClone.GetComponent<UnitCapsule>());
                 brain.AddOneUnitToList(unitClone.GetComponent<UnitCapsule>());
+                unitClone.SetParent(spawnedUnitsParent);
             }
         }
 
@@ -140,24 +145,27 @@ public class ManagerMapHandler : MonoBehaviour
             return;
 
         if (currentPlayersTurn == null)
-        { currentPlayersTurn = sampleBrainPlayers[0]; currentPlayersTurn.myTurn = true; currentPlayersTurn.CycleMyUnits(); }
+        { currentPlayersTurn = sampleBrainPlayers[0]; currentPlayersTurn.SetMyTurn(true); currentPlayersTurn.CycleMyUnits(); }
         else
         {
             for (int i = 0; i < sampleBrainPlayers.Count; i++)
             {
                 if (currentPlayersTurn == sampleBrainPlayers[i])
-                {
-                    currentPlayersTurn.myTurn = false;
+                {                    
+                    currentPlayersTurn.SetMyTurn(false);
 
-                    if (i == sampleBrainPlayers.Count - 1)
-                        currentPlayersTurn = sampleBrainPlayers[0];
-                    else
-                        currentPlayersTurn = sampleBrainPlayers[i + 1];
+                    i += 1;
 
-                    currentPlayersTurn.myTurn = true;
+                    if (i == sampleBrainPlayers.Count)
+                        i = 0;
+
+                    currentPlayersTurn = sampleBrainPlayers[i]; // right now is skipping 2nd players turn (but should not be)
+                    currentPlayersTurn.SetMyTurn(true);                    
                     currentPlayersTurn.CycleMyUnits();
+                    break;
                 }
             }
+            print("Next Player Turn - Break");
         }
 
     }

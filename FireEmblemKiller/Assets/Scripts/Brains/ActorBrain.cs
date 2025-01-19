@@ -14,6 +14,7 @@ public class ActorBrain : MonoBehaviour
 
     private Camera mainCamera;
     private int unitSelected, tileSelected;
+    private float turnChangerTimeStamp, turnChangerTimeWait = 2f;
 
 
 
@@ -33,9 +34,21 @@ public class ActorBrain : MonoBehaviour
             unitsImCommanding.Add(_unitToAdd);
     }
 
+    public void SetMyTurn(bool _isMyTurn)
+    {
+        myTurn = _isMyTurn;
+        turnChangerTimeStamp = Time.time;
+    }
+
     public void EndMyTurn()
     {
         Debug.Log($"{playerName}'s Turn Ended");
+
+        // disable on my units
+        if(unitsImCommanding.Count > 0)
+            foreach (UnitCapsule unit in unitsImCommanding)
+                unit.unitIsSelected = false;
+
         if (ManagerMapHandler.Instance)
             ManagerMapHandler.Instance.NextPlayersTurn();
     }
@@ -106,17 +119,15 @@ public class ActorBrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (myTurn)
+        if (myTurn && Time.time > turnChangerTimeStamp + turnChangerTimeWait)
         {
             if (ownedByAHumanPlayer)
                 Debug.Log($"Currently A Human Player's Turn: {playerName}");
             else
                 Debug.Log($"Currently A Human Player's Turn: {playerName}");
 
-            if (unitsImCommanding.Count > 0 && mainCamera)
-            {
-                CheckInputs();
-            }
+            if (unitsImCommanding.Count > 0)
+                CheckInputs();            
         }
     }
     
@@ -127,7 +138,7 @@ public class ActorBrain : MonoBehaviour
             EndMyTurn();
 
         if (Input.GetKeyUp(KeyCode.Return) || Input.GetKeyUp(KeyCode.Space)) // open context menu for us to select
-            EndMyTurn();
+            print("bring up unit context menu");
 
         if (Input.GetKeyUp(KeyCode.Tab))
             CycleMyUnits();

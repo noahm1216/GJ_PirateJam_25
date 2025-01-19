@@ -14,6 +14,7 @@ public class UnitCapsule : MonoBehaviour
 
     // update / upgrade stats
     // switching classes
+    // attacking (example... if we have a bow, and a knife in our equipment... when we attack from a range we will automatically only use the bow, when we attack from melee we will only use the knife)
     // and more things a unit might want to do
 
 
@@ -86,7 +87,6 @@ public class UnitStats
 }//end of data for unit stats
 
 
-
 // the custom data for unit equipment
 [System.Serializable]
 public class Equipment
@@ -116,10 +116,34 @@ public class Equipment
 }//end of data for equipment
 
 
+// the custom data for unit actions
+[System.Serializable]
+public class UnitAction
+{
+    public string actionDisplayName = "";
+    // enum equipment type
+    enum UNITACTIONS { }
+    // equipment image
+
+    
+
+    public UnitAction()
+    {
+
+    }
+
+}//end of data for equipment
+
 
 // TODO
 
+// actions
+// talk
+// attack (if no weapons then asssumed melee
 // abilities
+
+// abilities
+// fireball - heal one - heal multiple - etc...
 
 // hidden information (who we have talked to, battled, killed, fought next to, watched battle, etc...)
 

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 14480374}
   - component: {fileID: 14480373}
   m_Layer: 0
-  m_Name: SampleBrain - Player
+  m_Name: SampleBrain - Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -543,8 +543,8 @@ GameObject:
   - component: {fileID: 1691305828}
   - component: {fileID: 1691305827}
   m_Layer: 0
-  m_Name: SampleBrain - NPC
-  m_TagString: Untagged
+  m_Name: SampleBrain - Player 2
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
