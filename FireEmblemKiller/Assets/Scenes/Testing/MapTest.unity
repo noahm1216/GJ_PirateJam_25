@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ad084bf345f06429c639c25ff69e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: 
+  playerName: Big Brain Human
   ownedByAHumanPlayer: 0
   myTurn: 0
   myUnitPrefabs:
@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ad084bf345f06429c639c25ff69e79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: 
+  playerName: Dummy Dummy NPC
   ownedByAHumanPlayer: 0
   myTurn: 0
   myUnitPrefabs:
