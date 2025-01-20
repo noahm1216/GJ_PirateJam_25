@@ -14,7 +14,7 @@ public class ActorBrain : MonoBehaviour
 
     private Camera mainCamera;
     private int unitSelected, tileSelected;
-    private float turnChangerTimeStamp, turnChangerTimeWait = 2f;
+    private float turnChangerTimeStamp, turnChangerTimeWait = 0.2f;
 
 
 
@@ -137,8 +137,14 @@ public class ActorBrain : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.End))
             EndMyTurn();
 
-        if (Input.GetKeyUp(KeyCode.Return) || Input.GetKeyUp(KeyCode.Space)) // open context menu for us to select
+        if (Input.GetKeyUp(KeyCode.Return) || Input.GetKeyUp(KeyCode.KeypadEnter)) // open context menu for us to select
             print("bring up unit context menu");
+
+        if (Input.GetKeyUp(KeyCode.T) && ManagerConversationHandler.Instance) // make the current unit talk || TODO - currently using temporary code, this should be called from a function and based on the unit's library of words
+        {
+            ManagerConversationHandler.Instance.AddSpeakerToConversation(unitsImCommanding[unitSelected].thisUnitData.unitColor, unitsImCommanding[unitSelected].thisUnitData.unitIcon, false, unitsImCommanding[unitSelected].thisUnitData.unitName);
+            ManagerConversationHandler.Instance.AddDialogueToList(unitsImCommanding[unitSelected].thisUnitData.unitColor, "It's My Turn To Speak!", 0);
+        }
 
         if (Input.GetKeyUp(KeyCode.Tab))
             CycleMyUnits();

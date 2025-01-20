@@ -66,6 +66,7 @@ public class UnitCapsule : MonoBehaviour
 public class UnitData
 {
     public string unitName = ""; // name of character
+    public Color unitColor = Color.black;
     public Sprite unitIcon; // image to show during conversations
     public Transform unitPrefab; // 2d/3d model for the game  
     // owner of this unit
@@ -82,9 +83,10 @@ public class UnitData
     public List<Equipment> thisUnitsEquipment = new List<Equipment>();
 
 
-    public UnitData(string _newUName, Sprite _newUIcon, Transform _newUPrefab, int _newLv, Vector2 _newExp, Vector2 _newHP, int _newSpd, int _newRng)
+    public UnitData(string _newUName, Color _newClr, Sprite _newUIcon, Transform _newUPrefab, int _newLv, Vector2 _newExp, Vector2 _newHP, int _newSpd, int _newRng)
     {
         unitName = _newUName;
+        unitColor = _newClr;
         unitIcon = _newUIcon;
         unitPrefab = _newUPrefab;
         level = _newLv;
