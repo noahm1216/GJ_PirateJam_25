@@ -24,15 +24,14 @@ public class DialogueData : MonoBehaviour
     public void AddDialogueToQueue(DialogueItem _newDialogue)
     {
         print($"Adding Dialogue: {_newDialogue.words}");
-        quededDialogue.Add(new DialogueItem(_newDialogue.dialogueColor, _newDialogue.words, _newDialogue.textTypeSpeedWaitTime));
+        quededDialogue.Add(new DialogueItem(_newDialogue.speaker, _newDialogue.dialogueColor, _newDialogue.words, _newDialogue.textTypeSpeedWaitTime));
 
         if (quededDialogue.Count == 1)
             PlayQuededDialogue(quededDialogue[0]);
     }
 
     private void PlayQuededDialogue(DialogueItem _nextDialogue)
-    {
-        print($"I want to DELETE the text {dialogueTextBox.text}\n AND replace it with {_nextDialogue.words}");
+    {        
         ResetTextData();
 
         if (string.IsNullOrEmpty(_nextDialogue.words))
@@ -64,7 +63,7 @@ public class DialogueData : MonoBehaviour
         skippedAnimatedText = false;
     }
 
-    private void ResetTextData()
+    private void ResetTextData() // I call this a lot to catch all cased, but we might not need all of them
     {
         if (dialogueTextBox)
             dialogueTextBox.text = "";
@@ -120,14 +119,15 @@ public class DialogueData : MonoBehaviour
 [System.Serializable]
 public class DialogueItem
 {
-
+    public string speaker;
     public Color dialogueColor = Color.black;
     public string words;
     public float textTypeSpeedWaitTime;
 
 
-    public DialogueItem(Color _newClr, string _newWords, float _newTypeSpeed)
+    public DialogueItem(string _newSpkr, Color _newClr, string _newWords, float _newTypeSpeed)
     {
+        speaker = _newSpkr;
         dialogueColor = _newClr;
         words = _newWords;
         textTypeSpeedWaitTime = _newTypeSpeed;

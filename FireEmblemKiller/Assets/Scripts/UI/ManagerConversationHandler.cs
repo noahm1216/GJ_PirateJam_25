@@ -28,7 +28,7 @@ public class ManagerConversationHandler : MonoBehaviour
     }
 
     // SPEAKERS
-    public void AddSpeakerToConversation(Color _nameColor, Sprite _profilePic, bool _isFacingLeft, string _name)
+    public void AddSpeakerToConversation(UnitCapsule _unitPassed)
     {
         if (!portraitTemplate)
             return;        
@@ -40,7 +40,14 @@ public class ManagerConversationHandler : MonoBehaviour
             portraitsCreated.Clear();
         }
 
-        RemoveSpeakerFromConversation(_nameColor, _profilePic, _isFacingLeft, _name); // check if we already have this speaker on screen
+        // TODO
+        // for each character portraits
+        // if they have dont dialogue left
+        // consider removing them
+        if (dialogueManager && dialogueManager.quededDialogue.Count > 0) // check if there are more text in queue with this unit
+            RemoveSpeakerFromConversation(_unitPassed); // check if we already have this speaker on screen || if we have more dialogue after another character, then we dont want to remove it just yet
+           
+        
 
         Transform portraitClone = Instantiate(portraitTemplate.transform, portraitTemplate.transform.parent); // create the new portrait
         portraitClone.gameObject.SetActive(true);
@@ -49,7 +56,7 @@ public class ManagerConversationHandler : MonoBehaviour
 
         if (pCloneData)
         {
-            pCloneData.UpdateProfile(_nameColor, _profilePic, _isFacingLeft, _name);
+            pCloneData.UpdateProfile(_unitPassed, false);
             portraitsCreated.Add(pCloneData);
         }
 
@@ -61,15 +68,15 @@ public class ManagerConversationHandler : MonoBehaviour
         TogglePortraitBox(true); // show the portraits
     }
 
-    private void RemoveSpeakerFromConversation(Color _nameColor, Sprite _profilePic, bool _isFacingLeft, string _name)
+    private void RemoveSpeakerFromConversation(UnitCapsule _unitPassed)
     {
         if (portraitsCreated.Count == 0)
             return;
 
         foreach (PortraitData portrait in portraitsCreated)
-        {
-            if (portrait.name == _name && portrait.colorIndentifier == _nameColor)// found a match
-            { portraitsCreated.Remove(portrait); break; }
+        {           
+            if (portrait.profileNameText.text == _unitPassed.thisUnitData.unitName && portrait.colorIndentifier == _unitPassed.thisUnitData.unitColor)// found a match
+            { portraitsCreated.Remove(portrait); Destroy(portrait.gameObject); break; }
         }
 
         if (portraitsCreated.Count == 0)
@@ -83,10 +90,10 @@ public class ManagerConversationHandler : MonoBehaviour
     }
 
     // DIALOGUE
-    public void AddDialogueToList(Color _textColor, string _textWords, float _textWaitSpeed)
+    public void AddDialogueToList(UnitCapsule _unitPassed, string _textWords, float _textWaitSpeed)
     {
         ToggleDialogueBox(true);
-        dialogueManager.AddDialogueToQueue(new DialogueItem(_textColor, _textWords, _textWaitSpeed));        
+        dialogueManager.AddDialogueToQueue(new DialogueItem(_unitPassed.thisUnitData.unitName, _unitPassed.thisUnitData.unitColor, _textWords, _textWaitSpeed)); // we could make talk speed part of a unit
     }
 
     public void ToggleDialogueBox(bool _showDialogueBox)

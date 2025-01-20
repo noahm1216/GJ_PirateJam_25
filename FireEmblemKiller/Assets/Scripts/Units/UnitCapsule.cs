@@ -58,8 +58,12 @@ public class UnitCapsule : MonoBehaviour
 
         return defense;
     }
-}
+} // end of UnitCapsule Base Class
 
+
+/// <summary>
+/// ---------------------------------------------------CUSTOM UNIT CLASSES
+/// </summary>
 
 // the custom data for unit information
 [System.Serializable]

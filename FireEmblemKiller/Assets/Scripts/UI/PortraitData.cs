@@ -16,14 +16,14 @@ public class PortraitData : MonoBehaviour
     public TextMeshProUGUI profileNameText;
 
 
-    public void UpdateProfile(Color _nameColor, Sprite _profilePic, bool _isFacingLeft, string _name)
+    public void UpdateProfile(UnitCapsule _unitPassed, bool _isFacingLeft)
     {
-        colorIndentifier = _nameColor;
-        profilePicHolder.sprite = _profilePic;
+        colorIndentifier = _unitPassed.thisUnitData.unitColor;
+        profilePicHolder.sprite = _unitPassed.thisUnitData.unitIcon;
         if (picfacingLeft != _isFacingLeft)
             profilePicHolder.transform.Rotate(0, 180, 0);
         profileNameText.color = colorIndentifier;
-        profileNameText.text = _name;
+        profileNameText.text = _unitPassed.thisUnitData.unitName;
     }
 
 }
