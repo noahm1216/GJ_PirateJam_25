@@ -7,6 +7,7 @@ public class ActorBrain : MonoBehaviour
     public string playerName = "";
     public bool ownedByAHumanPlayer;
     public bool myTurn;
+    public ActorButtonMap myKeyMapPrefs;
     public List<Transform> myUnitPrefabs = new List<Transform>();
 
     // During Map
@@ -134,39 +135,42 @@ public class ActorBrain : MonoBehaviour
     public void CheckInputs()
     {
         Debug.Log("Press 'End' key to end your turn");
-        if (Input.GetKeyUp(KeyCode.End))
+        if (Input.GetKeyUp(myKeyMapPrefs.endTurn))
             EndMyTurn();
 
-        if (Input.GetKeyUp(KeyCode.Return) || Input.GetKeyUp(KeyCode.KeypadEnter)) // open context menu for us to select
+        if (Input.GetKeyUp(myKeyMapPrefs.selectActiveOption1) || Input.GetKeyUp(myKeyMapPrefs.selectActiveOption2)) // open context menu for us to select
             print("bring up unit context menu");
 
-        if (Input.GetKeyUp(KeyCode.T) && ManagerConversationHandler.Instance) // make the current unit talk || TODO - currently using temporary code, this should be called from a function and based on the unit's library of words
+        if (Input.GetKeyUp(myKeyMapPrefs.unitTalk) && ManagerConversationHandler.Instance) // make the current unit talk || TODO - currently using temporary code, this should be called from a function and based on the unit's library of words
         {
             ManagerConversationHandler.Instance.AddSpeakerToConversation(unitsImCommanding[unitSelected]);
             ManagerConversationHandler.Instance.AddDialogueToList(unitsImCommanding[unitSelected], "It's My Turn To Speak!", 0);
         }
 
-        if (Input.GetKeyUp(KeyCode.Tab))
+        if (Input.GetKeyUp(myKeyMapPrefs.unitsCycle))
             CycleMyUnits();
 
         if (ManagerMapHandler.Instance)
         {
-            if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W))
+            if (Input.GetKeyUp(myKeyMapPrefs.selectionUp))
                 ChangeTileSelected(-ManagerMapHandler.Instance.mapSize.x);
-            if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D))
+            if (Input.GetKeyUp(myKeyMapPrefs.selectionRight))
                 ChangeTileSelected(1);
-            if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.A))
+            if (Input.GetKeyUp(myKeyMapPrefs.selectionLeft))
                 ChangeTileSelected(-1);
-            if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S))
+            if (Input.GetKeyUp(myKeyMapPrefs.selectionDown))
                 ChangeTileSelected(ManagerMapHandler.Instance.mapSize.x);
         }
 
         // Moving our selected unit
-        if (Input.GetKeyUp(KeyCode.M) && ManagerMapHandler.Instance) 
+        if (Input.GetKeyUp(myKeyMapPrefs.unitMove) && ManagerMapHandler.Instance) 
             if(ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].isInRange || ManagerMapHandler.Instance.gridTilesGenerated[tileSelected] == unitsImCommanding[unitSelected].tileImOn)
             unitsImCommanding[unitSelected].transform.position = ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].transform.position;
 
-        if (Input.GetKeyUp(KeyCode.C)) // calculate unit's attack
+        if (Input.GetKeyUp(myKeyMapPrefs.skipUnitTalk) && ManagerConversationHandler.Instance)
+            ManagerConversationHandler.Instance.dialogueManager.FinishTypingOrNextDialogue();
+
+        if (Input.GetKeyUp(myKeyMapPrefs.calculateAttack)) // calculate unit's attack
         {
             //ManagerMapHandler.Instance.gridTilesGenerated[tileSelected]
             int attackDamage = unitsImCommanding[unitSelected].CalculateAttack(unitsImCommanding[unitSelected].thisUnitData);
@@ -178,7 +182,7 @@ public class ActorBrain : MonoBehaviour
             // Send this result to ManagerMapHandler.SendHPChangToTarget(int _change, List<UnitCapsule> _unitsAffected)
         }
 
-        if (Input.GetKeyUp(KeyCode.A)) // attempt to attack an enemy unit with selected unit
+        if (Input.GetKeyUp(myKeyMapPrefs.unitPlanAttack)) // attempt to attack an enemy unit with selected unit
         {
             // Get reference to other player's brain
             ActorBrain otherBrain = null;
@@ -208,7 +212,7 @@ public class ActorBrain : MonoBehaviour
                 defenseValue, otherBrain.unitsImCommanding[otherBrain.unitSelected].thisUnitData.thisUnitsStats.constitution);
         }
 
-        if (Input.GetKeyUp(KeyCode.B))
+        if (Input.GetKeyUp(myKeyMapPrefs.unitConfirmDefense))
         {
             // Get reference to other player's brain
             ActorBrain otherBrain = null;
@@ -231,3 +235,45 @@ public class ActorBrain : MonoBehaviour
         }
     }
 }
+
+
+
+
+// the custom data for key preferences
+[System.Serializable]
+public class ActorButtonMap
+{
+    public string keyMappingNickname;
+
+    [Space]
+    [Header("SELECT NAVIGATION\n_____________")]    
+    public KeyCode selectionUp = KeyCode.UpArrow;
+    public KeyCode selectionDown = KeyCode.DownArrow;
+    public KeyCode selectionRight = KeyCode.RightArrow;
+    public KeyCode selectionLeft = KeyCode.LeftArrow;
+
+    [Space]
+    [Header("AFFIRMATION \n_____________")]
+    public KeyCode selectActiveOption1 = KeyCode.Return;
+    public KeyCode selectActiveOption2 = KeyCode.KeypadEnter;
+    public KeyCode cancelActiveOption = KeyCode.Escape;
+    public KeyCode removeActiveOption = KeyCode.Backspace;
+
+    [Space]
+    [Header("ACTION HOTKEYS \n_____________")]
+    public KeyCode endTurn = KeyCode.End;
+    public KeyCode unitsCycle = KeyCode.Tab;
+    public KeyCode unitMove = KeyCode.M;
+    public KeyCode unitTalk = KeyCode.T;
+    public KeyCode skipUnitTalk = KeyCode.Space;
+    public KeyCode unitPlanAttack = KeyCode.A;
+    public KeyCode calculateAttack = KeyCode.C;
+    public KeyCode unitConfirmDefense = KeyCode.B;    
+
+
+    //public ActorButtonMap(string _newSpkr)
+    //{
+    //    speaker = _newSpkr;       
+    //}
+
+}//end of class for keys

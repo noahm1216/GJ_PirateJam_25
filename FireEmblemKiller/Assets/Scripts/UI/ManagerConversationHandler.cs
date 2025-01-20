@@ -102,17 +102,4 @@ public class ManagerConversationHandler : MonoBehaviour
             dialogueManager.gameObject.SetActive(_showDialogueBox);
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        CheckInputs();
-    }
-
-    public void CheckInputs()
-    {
-        if (Input.GetKeyUp(KeyCode.Space))
-            dialogueManager.FinishTypingOrNextDialogue();
-        
-    }
 }
