@@ -8,7 +8,7 @@ public class DialogueData : MonoBehaviour
 {
     public Color dialogueColor = Color.black; // if we eventually want to do multicolor messages <ColorUtility.ToHtmlStringRGB( myColor )>
     public TextMeshProUGUI dialogueTextBox;
-    public bool neverAnimateText;
+    public bool neverAnimateText, autoPlayMessages;
 
     public string fullDialogueMessage;
     public bool skippedAnimatedText;
@@ -18,7 +18,7 @@ public class DialogueData : MonoBehaviour
 
     private void Start()
     {
-        dialogueTextBox.text = "...";
+        ResetTextData();
     }    
 
     public void AddDialogueToQueue(DialogueItem _newDialogue)
@@ -32,57 +32,63 @@ public class DialogueData : MonoBehaviour
 
     private void PlayQuededDialogue(DialogueItem _nextDialogue)
     {
+        print($"I want to DELETE the text {dialogueTextBox.text}\n AND replace it with {_nextDialogue.words}");
+        ResetTextData();
+
         if (string.IsNullOrEmpty(_nextDialogue.words))
-            return;
-
-        string dialogueConverter = "" + _nextDialogue.words;
-
-        textIsAnimating = true;
+            return;       
 
         if (_nextDialogue.textTypeSpeedWaitTime != 0)
             textWaitTime = _nextDialogue.textTypeSpeedWaitTime;
         else
-            textWaitTime = 0.05f;
+            textWaitTime = 0.15f;
 
         dialogueColor = _nextDialogue.dialogueColor;
-        fullDialogueMessage = _nextDialogue.words;
-        dialogueTextBox.text = "";
+        fullDialogueMessage = _nextDialogue.words;        
         dialogueTextBox.color = dialogueColor;
 
+        textIsAnimating = true;
         textTimeStamp = Time.time;
         StartCoroutine(TypeText());
     }
 
     public void FinishTypingOrNextDialogue()
     {
+        //print("PRESSED SKIP TEXT");
         skippedAnimatedText = true;
+    }
+
+    private void ResetSkipVars()
+    {
+        textIsAnimating = false;
+        skippedAnimatedText = false;
+    }
+
+    private void ResetTextData()
+    {
+        if (dialogueTextBox)
+            dialogueTextBox.text = "";
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (quededDialogue.Count > 0 && !textIsAnimating && Time.time > textTimeStamp + 2f) // if we have dialogue to play, but arent playing anything right now
+        if (autoPlayMessages || skippedAnimatedText) // if we press skip 
         {
-            if (dialogueTextBox.text == fullDialogueMessage)// if our text lines up we are done
+            if (!textIsAnimating)
             {
-                print("DIALOGUE AND MESSAGE LINE UP!!!!!!!!");
-                if (skippedAnimatedText) // if we pressed the button to skip our text
-                {
-                    quededDialogue.RemoveAt(0); // remove our current dialogue and reset. Then check if we have more
-                    textIsAnimating = false;
-                    skippedAnimatedText = false;
-                    if (quededDialogue.Count > 0)
-                        PlayQuededDialogue(quededDialogue[0]);
-                    else // turn off the UI for dialogue and pictures
-                        if (ManagerConversationHandler.Instance) { ManagerConversationHandler.Instance.ToggleDialogueBox(false); ManagerConversationHandler.Instance.TogglePortraitBox(false); }
-                }
-            }
-            else // our message has NOT lined up yet
-            {
-                if (textIsAnimating) // if we ware not playing
-                    PlayQuededDialogue(quededDialogue[0]);
-            }
-        }
+                //print("ready to go to next message OR close dialogue box");
+                if (quededDialogue.Count > 0)
+                { ResetTextData(); ResetSkipVars(); quededDialogue.RemoveAt(0); }
+
+                if (quededDialogue.Count > 0)
+                { ResetTextData(); ResetSkipVars(); PlayQuededDialogue(quededDialogue[0]); }
+                else
+                    if (ManagerConversationHandler.Instance)
+                { ResetTextData(); ResetSkipVars(); ManagerConversationHandler.Instance.TogglePortraitBox(false); ManagerConversationHandler.Instance.ToggleDialogueBox(false); }
+            }           
+            
+        }    
 
     }
 
@@ -93,9 +99,8 @@ public class DialogueData : MonoBehaviour
             if (neverAnimateText || skippedAnimatedText)
             {
                 dialogueTextBox.text = fullDialogueMessage;
-                skippedAnimatedText = false;
-                textIsAnimating = false;
-                //yield break;
+                ResetSkipVars();
+                yield break;
             }
             else
             {
@@ -104,6 +109,7 @@ public class DialogueData : MonoBehaviour
                 yield return new WaitForSeconds(textWaitTime);
             }
         }
+        ResetSkipVars();
     }
 
    

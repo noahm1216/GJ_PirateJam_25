@@ -31,27 +31,21 @@ public class ManagerConversationHandler : MonoBehaviour
     public void AddSpeakerToConversation(Color _nameColor, Sprite _profilePic, bool _isFacingLeft, string _name)
     {
         if (!portraitTemplate)
-            return;
-        
+            return;        
 
-        if (portraitsCreated.Count > 0 && portraitTemplate.transform.parent.gameObject.activeSelf == false)
+        if (portraitsCreated.Count > 0 && portraitTemplate.transform.parent.gameObject.activeSelf == false) // clear all portraits if this was disabled at the time
         {
             foreach (PortraitData portraits in portraitsCreated)
                 Destroy(portraits.gameObject);
             portraitsCreated.Clear();
         }
-        
-        Transform portraitClone = Instantiate(portraitTemplate.transform, portraitTemplate.transform.parent);
+
+        RemoveSpeakerFromConversation(_nameColor, _profilePic, _isFacingLeft, _name); // check if we already have this speaker on screen
+
+        Transform portraitClone = Instantiate(portraitTemplate.transform, portraitTemplate.transform.parent); // create the new portrait
         portraitClone.gameObject.SetActive(true);
         PortraitData pCloneData = null;
-        portraitClone.TryGetComponent(out pCloneData);
-
-        //figure out if we need to flip it
-        //if (x % 2 == 0)
-        //    Console.WriteLine(“Even”);
-        //else
-        //    Console.WriteLine(“Odd”);
-
+        portraitClone.TryGetComponent(out pCloneData);               
 
         if (pCloneData)
         {
@@ -59,7 +53,12 @@ public class ManagerConversationHandler : MonoBehaviour
             portraitsCreated.Add(pCloneData);
         }
 
-        TogglePortraitBox(true);
+        //if (x % 2 == 0) //figure out if we need to flip it
+        //    Console.WriteLine(“Even”);
+        //else
+        //    Console.WriteLine(“Odd”);
+
+        TogglePortraitBox(true); // show the portraits
     }
 
     private void RemoveSpeakerFromConversation(Color _nameColor, Sprite _profilePic, bool _isFacingLeft, string _name)
