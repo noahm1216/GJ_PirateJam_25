@@ -18,12 +18,16 @@ public class DialogueData : MonoBehaviour
 
     private void Start()
     {
-        dialogueTextBox.text = "";
+        dialogueTextBox.text = "...";
     }    
 
     public void AddDialogueToQueue(DialogueItem _newDialogue)
     {
+        print($"Adding Dialogue: {_newDialogue.words}");
         quededDialogue.Add(new DialogueItem(_newDialogue.dialogueColor, _newDialogue.words, _newDialogue.textTypeSpeedWaitTime));
+
+        if (quededDialogue.Count == 1)
+            PlayQuededDialogue(quededDialogue[0]);
     }
 
     private void PlayQuededDialogue(DialogueItem _nextDialogue)
@@ -31,18 +35,21 @@ public class DialogueData : MonoBehaviour
         if (string.IsNullOrEmpty(_nextDialogue.words))
             return;
 
+        string dialogueConverter = "" + _nextDialogue.words;
+
         textIsAnimating = true;
 
         if (_nextDialogue.textTypeSpeedWaitTime != 0)
             textWaitTime = _nextDialogue.textTypeSpeedWaitTime;
         else
-            textWaitTime = 0.15f;
+            textWaitTime = 0.05f;
 
         dialogueColor = _nextDialogue.dialogueColor;
         fullDialogueMessage = _nextDialogue.words;
         dialogueTextBox.text = "";
         dialogueTextBox.color = dialogueColor;
-        print($"we should be seeing: {fullDialogueMessage}");
+
+        textTimeStamp = Time.time;
         StartCoroutine(TypeText());
     }
 
@@ -54,12 +61,12 @@ public class DialogueData : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if(quededDialogue.Count > 0 && !textIsAnimating) // if we have dialogue to play, but arent playing anything right now
-        {            
-            if(dialogueTextBox.text == fullDialogueMessage)// if our text lines up we are done
+        if (quededDialogue.Count > 0 && !textIsAnimating && Time.time > textTimeStamp + 2f) // if we have dialogue to play, but arent playing anything right now
+        {
+            if (dialogueTextBox.text == fullDialogueMessage)// if our text lines up we are done
             {
                 print("DIALOGUE AND MESSAGE LINE UP!!!!!!!!");
-                if(skippedAnimatedText) // if we pressed the button to skip our text
+                if (skippedAnimatedText) // if we pressed the button to skip our text
                 {
                     quededDialogue.RemoveAt(0); // remove our current dialogue and reset. Then check if we have more
                     textIsAnimating = false;
@@ -72,39 +79,16 @@ public class DialogueData : MonoBehaviour
             }
             else // our message has NOT lined up yet
             {
-                if(textIsAnimating) // if we ware not playing
+                if (textIsAnimating) // if we ware not playing
                     PlayQuededDialogue(quededDialogue[0]);
             }
         }
-
-        //if (!textIsAnimating && skippedAnimatedText)
-        //{
-        //    if (quededDialogue.Count > 0)
-        //        PlayQuededDialogue(quededDialogue[0]);
-        //    else
-        //        if (ManagerConversationHandler.Instance) { ManagerConversationHandler.Instance.ToggleDialogueBox(false); } //close menu
-
-        //    skippedAnimatedText = false;
-        //}
-
-        //if (textIsAnimating && dialogueTextBox.text != fullDialogueMessage) // the message is still printing
-        //{
-        //    print($"FullMessage: {fullDialogueMessage}");
-
-        //    if (neverAnimateText || skippedAnimatedText)
-        //    {
-        //        dialogueTextBox.text = fullDialogueMessage;
-        //        quededDialogue.RemoveAt(0);
-        //        textIsAnimating = false;
-        //        skippedAnimatedText = false;
-        //    }
-        //}
 
     }
 
     IEnumerator TypeText()
     {        
-        for (int i = 0; i <= fullDialogueMessage.Length; i++)
+        for (int i = 0; i < fullDialogueMessage.Length; i++)
         {
             if (neverAnimateText || skippedAnimatedText)
             {
@@ -115,7 +99,7 @@ public class DialogueData : MonoBehaviour
             }
             else
             {
-                dialogueTextBox.text += fullDialogueMessage.Substring(0, i);
+                dialogueTextBox.text += fullDialogueMessage[i];
                 textIsAnimating = true;
                 yield return new WaitForSeconds(textWaitTime);
             }

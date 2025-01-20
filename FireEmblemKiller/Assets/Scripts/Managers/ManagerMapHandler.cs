@@ -117,7 +117,7 @@ public class ManagerMapHandler : MonoBehaviour
 
         foreach(UnitCapsule unit in spawnedUnits) // placing units
         {
-            print($"Unit: {unit.thisUnitData.unitName}");
+            //print($"Unit: {unit.thisUnitData.unitName}");
 
             foreach(MapTileData tile in gridTilesGenerated)
             {
@@ -125,7 +125,7 @@ public class ManagerMapHandler : MonoBehaviour
 
                 if (tile.TileIsFree())
                 {
-                    print($"Tile: {tile.transform.name} - is Free For: {unit.thisUnitData.unitName}");
+                    //print($"Tile: {tile.transform.name} - is Free For: {unit.thisUnitData.unitName}");
                     unit.transform.position = tile.transform.position;
                     tile.unitOnThisTile = unit;
                     unit.tileImOn = tile;
@@ -165,7 +165,7 @@ public class ManagerMapHandler : MonoBehaviour
                     break;
                 }
             }
-            print("Next Player Turn - Break");
+            //print("Next Player Turn - Break");
         }
 
     }

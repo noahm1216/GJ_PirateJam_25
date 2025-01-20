@@ -52,7 +52,7 @@ MonoBehaviour:
   tileImOn: {fileID: 0}
   thisUnitData:
     unitName: Jenna
-    unitColor: {r: 0, g: 0.18823531, b: 1, a: 0}
+    unitColor: {r: 0, g: 0.18823531, b: 1, a: 1}
     unitIcon: {fileID: 1098134683, guid: faddce203184eee4e86232b1863c7e1a, type: 3}
     unitPrefab: {fileID: 0}
     level: 0

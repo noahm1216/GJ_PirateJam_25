@@ -136,7 +136,7 @@ MonoBehaviour:
   tileImOn: {fileID: 0}
   thisUnitData:
     unitName: Bunkle
-    unitColor: {r: 0.44705886, g: 0.23529413, b: 0, a: 0}
+    unitColor: {r: 0.44705886, g: 0.23529413, b: 0, a: 1}
     unitIcon: {fileID: 1748690526, guid: faddce203184eee4e86232b1863c7e1a, type: 3}
     unitPrefab: {fileID: 0}
     level: 0
