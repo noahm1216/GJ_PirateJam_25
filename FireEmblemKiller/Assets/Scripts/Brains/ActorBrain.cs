@@ -16,7 +16,7 @@ public class ActorBrain : MonoBehaviour
     private int unitSelected, tileSelected;
     private float turnChangerTimeStamp, turnChangerTimeWait = 0.2f;
 
-
+    public GameObject BattleForecastCanvas_go;
 
     // Start is called before the first frame update
     void Start()
@@ -184,6 +184,23 @@ public class ActorBrain : MonoBehaviour
                 else Debug.Log("Brain was not found. ERROR");
             }
             otherBrain?.CycleMyUnits();
+
+            // Activate and Update Battle Forecast
+            BattleForecastCanvas_go.SetActive(true);
+            // Calculate Damage Inflicted
+            int damageInflicted;
+            int attackDamage = unitsImCommanding[unitSelected].CalculateAttack(unitsImCommanding[unitSelected].thisUnitData);
+            int defenseValue = otherBrain.unitsImCommanding[otherBrain.unitSelected].CalculateDefense(otherBrain.unitsImCommanding[otherBrain.unitSelected].thisUnitData);
+            damageInflicted = attackDamage - defenseValue;
+            if (damageInflicted < 0) damageInflicted = 0;
+            List<UnitCapsule> unitsAffected = new List<UnitCapsule>();
+            unitsAffected.Add(otherBrain.unitsImCommanding[otherBrain.unitSelected]);
+            ManagerMapHandler.Instance.SendHPChangeToTarget(damageInflicted, otherBrain.unitsImCommanding[otherBrain.unitSelected]);
+            //Set Forecast Data
+            ManagerBattleForecast.Instance.SetForecastData(unitsImCommanding[unitSelected].thisUnitData.unitName,
+                otherBrain.unitsImCommanding[otherBrain.unitSelected].thisUnitData.unitName,
+                attackDamage, unitsImCommanding[unitSelected].thisUnitData.speed,
+                defenseValue, otherBrain.unitsImCommanding[otherBrain.unitSelected].thisUnitData.thisUnitsStats.constitution);
         }
 
         if (Input.GetKeyUp(KeyCode.B))
