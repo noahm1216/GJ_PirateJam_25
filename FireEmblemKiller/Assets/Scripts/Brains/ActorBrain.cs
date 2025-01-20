@@ -161,7 +161,9 @@ public class ActorBrain : MonoBehaviour
                 ChangeTileSelected(ManagerMapHandler.Instance.mapSize.x);
         }
 
-        if (Input.GetKeyUp(KeyCode.M) && ManagerMapHandler.Instance && ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].isInRange) // calculate unit's attack
+        // Moving our selected unit
+        if (Input.GetKeyUp(KeyCode.M) && ManagerMapHandler.Instance) 
+            if(ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].isInRange || ManagerMapHandler.Instance.gridTilesGenerated[tileSelected] == unitsImCommanding[unitSelected].tileImOn)
             unitsImCommanding[unitSelected].transform.position = ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].transform.position;
 
         if (Input.GetKeyUp(KeyCode.C)) // calculate unit's attack
