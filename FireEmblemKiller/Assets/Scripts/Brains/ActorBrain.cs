@@ -154,5 +154,17 @@ public class ActorBrain : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S))
                 ChangeTileSelected(ManagerMapHandler.Instance.mapSize.x);
         }
+
+        if (Input.GetKeyUp(KeyCode.C)) // calculate unit's attack
+        {
+            //ManagerMapHandler.Instance.gridTilesGenerated[tileSelected]
+            int attackDamage = unitsImCommanding[unitSelected].CalculateAttack(unitsImCommanding[unitSelected].thisUnitData);
+            Debug.Log($"Calculating Attack for {unitsImCommanding[unitSelected].thisUnitData.unitName}. Attack = {attackDamage}");
+
+            // TODO
+            // Select an enemy unit and calculate their defense.
+            // Subtract defense from unit's attack
+            // Send this result to ManagerMapHandler.SendHPChangToTarget(int _change, List<UnitCapsule> _unitsAffected)
+        }
     }
 }

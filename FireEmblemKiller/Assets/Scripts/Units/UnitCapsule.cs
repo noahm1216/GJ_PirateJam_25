@@ -23,6 +23,41 @@ public class UnitCapsule : MonoBehaviour
         if (selectedIndicator)
             selectedIndicator.SetActive(unitIsSelected); // eventually this should just be a function called from the Brain once (passing if we are selecting or not)
     }
+
+    public int CalculateAttack(UnitData unit)
+    {
+        // damage starts with the unit's base strength stat
+        int damage = unit.thisUnitsStats.strength;
+
+        // check all equipment for attack bonuses
+        foreach (Equipment eq in thisUnitData.thisUnitsEquipment)
+        {
+            damage += eq.strengthBonus;
+            Debug.Log($"Adding {eq.equipmentName}'s strength bonus ({eq.strengthBonus}) to damage. New total: {damage}");
+        }
+
+        // basic critical chance check using charisma
+        int randomNumber = Random.Range(1, 100);
+        if (randomNumber <= unit.thisUnitsStats.charisma) damage *= 2;
+
+        return damage;
+    }
+
+    public int CalculateDefense(UnitData unit)
+    {
+        // defense value starts at 0
+        int defense = 0;
+
+        // add armor values to defense
+        foreach (Equipment eq in thisUnitData.thisUnitsEquipment)
+        {
+            // the added defense is just twice that of the equipment's constitution bonus
+            defense += eq.constitutionBonus * 2;
+            Debug.Log($"Adding {eq.equipmentName}'s constitution bonus ({eq.constitutionBonus}) to defens. New total: {defense}");
+        }
+
+        return defense;
+    }
 }
 
 
@@ -139,10 +174,10 @@ public class UnitAction
 
 // actions
 // talk
-// attack (if no weapons then asssumed melee
+// attack (if no weapons then asssumed melee)
 // abilities
 
-// abilities
+// abilities:
 // fireball - heal one - heal multiple - etc...
 
 // hidden information (who we have talked to, battled, killed, fought next to, watched battle, etc...)

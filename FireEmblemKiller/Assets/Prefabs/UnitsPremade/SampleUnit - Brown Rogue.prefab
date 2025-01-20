@@ -144,7 +144,7 @@ MonoBehaviour:
     speed: 7
     range: 0
     thisUnitsStats:
-      strength: 0
+      strength: 7
       dexterity: 0
       constitution: 0
       wisdom: 0
