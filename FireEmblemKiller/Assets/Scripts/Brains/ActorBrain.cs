@@ -166,5 +166,40 @@ public class ActorBrain : MonoBehaviour
             // Subtract defense from unit's attack
             // Send this result to ManagerMapHandler.SendHPChangToTarget(int _change, List<UnitCapsule> _unitsAffected)
         }
+
+        if (Input.GetKeyUp(KeyCode.A)) // attempt to attack an enemy unit with selected unit
+        {
+            // Get reference to other player's brain
+            ActorBrain otherBrain = null;
+            foreach (ActorBrain ab in ManagerMapHandler.Instance.sampleBrainPlayers)
+            {
+                if (ab == this) continue;
+                else if (ab != this) otherBrain = ab;
+                else Debug.Log("Brain was not found. ERROR");
+            }
+            otherBrain?.CycleMyUnits();
+        }
+
+        if (Input.GetKeyUp(KeyCode.B))
+        {
+            // Get reference to other player's brain
+            ActorBrain otherBrain = null;
+            foreach (ActorBrain ab in ManagerMapHandler.Instance.sampleBrainPlayers)
+            {
+                if (ab == this) continue;
+                else if (ab != this) otherBrain = ab;
+                else Debug.Log("Brain was not found. ERROR");
+            }
+
+            // Calculate Damage Inflicted
+            int damageInflicted;
+            int attackDamage = unitsImCommanding[unitSelected].CalculateAttack(unitsImCommanding[unitSelected].thisUnitData);
+            int defenseValue = otherBrain.unitsImCommanding[otherBrain.unitSelected].CalculateDefense(otherBrain.unitsImCommanding[otherBrain.unitSelected].thisUnitData);
+            damageInflicted = attackDamage - defenseValue;
+            if (damageInflicted < 0) damageInflicted = 0;
+            List<UnitCapsule> unitsAffected = new List<UnitCapsule>();
+            unitsAffected.Add(otherBrain.unitsImCommanding[otherBrain.unitSelected]);
+            ManagerMapHandler.Instance.SendHPChangeToTarget(damageInflicted, otherBrain.unitsImCommanding[otherBrain.unitSelected]);
+        }
     }
 }

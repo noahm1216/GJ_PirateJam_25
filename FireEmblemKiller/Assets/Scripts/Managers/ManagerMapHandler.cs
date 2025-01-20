@@ -193,8 +193,9 @@ public class ManagerMapHandler : MonoBehaviour
         }
     }
 
-    public void SendHPChangToTarget(int _change, List<UnitCapsule> _unitsAffected)
+    public void SendHPChangeToTarget(int _change, UnitCapsule _unitAffected)
     {
-        // do math here
+        _unitAffected.thisUnitData.healthPoints.x -= _change;
+        Debug.Log($"{_unitAffected.thisUnitData.unitName} has taken {_change} damage. {_unitAffected.thisUnitData.unitName}'s New Health Total is: {_unitAffected.thisUnitData.healthPoints.x}");
     }
 }
