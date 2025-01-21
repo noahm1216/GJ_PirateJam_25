@@ -44,6 +44,8 @@ public class ManagerMapHandler : MonoBehaviour
 
     }
 
+    #region BattleMap Initializations
+
     public void InitializeGrid(Vector2Int _gridDimension, Vector3 _gridStartPos, bool _startPosIsCenter)
     {
         Debug.Log("Creating Grid / Tiles");
@@ -115,14 +117,12 @@ public class ManagerMapHandler : MonoBehaviour
         }
 
 
-        foreach(UnitCapsule unit in spawnedUnits) // placing units
+        foreach(UnitCapsule unit in spawnedUnits) // placing units || TODO - figure out a pattern or sample way to design basic spawns that are more interesting
         {
-            //print($"Unit: {unit.thisUnitData.unitName}");
+            unit.ChangeUnitSelection(false); // deselect all units
 
             foreach(MapTileData tile in gridTilesGenerated)
             {
-                print($"Tile: {tile.name}");
-
                 if (tile.TileIsFree())
                 {
                     //print($"Tile: {tile.transform.name} - is Free For: {unit.thisUnitData.unitName}");
@@ -136,39 +136,10 @@ public class ManagerMapHandler : MonoBehaviour
         NextPlayersTurn(); // assign whose turn it is
     }
 
+    #endregion end BattleMap Initializations
 
-    public void NextPlayersTurn()
-    {
-        Debug.Log("Assigning Next Player's Turn");
 
-        if (sampleBrainPlayers.Count == 0)
-            return;
-
-        if (currentPlayersTurn == null)
-        { currentPlayersTurn = sampleBrainPlayers[0]; currentPlayersTurn.SetMyTurn(true); currentPlayersTurn.CycleMyUnits(); }
-        else
-        {
-            for (int i = 0; i < sampleBrainPlayers.Count; i++)
-            {
-                if (currentPlayersTurn == sampleBrainPlayers[i])
-                {                    
-                    currentPlayersTurn.SetMyTurn(false);
-
-                    i += 1;
-
-                    if (i == sampleBrainPlayers.Count)
-                        i = 0;
-
-                    currentPlayersTurn = sampleBrainPlayers[i]; // right now is skipping 2nd players turn (but should not be)
-                    currentPlayersTurn.SetMyTurn(true);                    
-                    currentPlayersTurn.CycleMyUnits();
-                    break;
-                }
-            }
-            //print("Next Player Turn - Break");
-        }
-
-    }
+    #region BattleMap Visuals
 
     public void ShowTraversableTiles(Transform _startPoint, float _acceptableDistance)
     {
@@ -193,9 +164,70 @@ public class ManagerMapHandler : MonoBehaviour
         }
     }
 
+    #endregion end BattleMap Visuals
+
+
+    #region BattleMap BrainActions
+
+    public void NextPlayersTurn()
+    {
+        Debug.Log("Assigning Next Player's Turn");
+
+        if (sampleBrainPlayers.Count == 0)
+            return;
+
+        if (currentPlayersTurn == null)
+        { currentPlayersTurn = sampleBrainPlayers[0]; currentPlayersTurn.SetMyTurn(true); currentPlayersTurn.CycleMyUnits(); }
+        else
+        {
+            for (int i = 0; i < sampleBrainPlayers.Count; i++)
+            {
+                if (currentPlayersTurn == sampleBrainPlayers[i])
+                {
+                    currentPlayersTurn.SetMyTurn(false);
+
+                    i += 1;
+
+                    if (i == sampleBrainPlayers.Count)
+                        i = 0;
+
+                    currentPlayersTurn = sampleBrainPlayers[i]; // right now is skipping 2nd players turn (but should not be)
+                    currentPlayersTurn.SetMyTurn(true);
+                    currentPlayersTurn.CycleMyUnits();
+                    break;
+                }
+            }
+            //print("Next Player Turn - Break");
+        }
+
+    }
+
     public void SendHPChangeToTarget(int _change, UnitCapsule _unitAffected)
     {
         _unitAffected.thisUnitData.healthPoints.x -= _change;
         Debug.Log($"{_unitAffected.thisUnitData.unitName} has taken {_change} damage. {_unitAffected.thisUnitData.unitName}'s New Health Total is: {_unitAffected.thisUnitData.healthPoints.x}");
     }
+
+
+    public void OfficiallyMoveUnit(MapTileData _targetTile, UnitCapsule _unitMoving)
+    {
+        if (_unitMoving == null)
+            return;
+
+        if (_targetTile == null || _targetTile == _unitMoving.tileImOn) // we are returning the unit back to it's original spot
+            _unitMoving.transform.position = _unitMoving.tileImOn.transform.position;
+
+        // TODO - calculate and subtract remaining speed (if we want to allow units to move their full speed) || could also (or instead) do a single bool that tracks 'isDoneMoving' which locks a character in place
+
+        // remove unit and their current tile from each other
+        _unitMoving.tileImOn.unitOnThisTile = null;
+        _unitMoving.transform.position = _targetTile.transform.position;
+        _unitMoving.tileImOn = _targetTile;
+        _targetTile.unitOnThisTile = _unitMoving;
+
+        if (_unitMoving.unitIsSelected)
+            ShowTraversableTiles(_unitMoving.transform, _unitMoving.thisUnitData.speed);
+    }
+
+    #endregion end BattleMap BrainActions
 }

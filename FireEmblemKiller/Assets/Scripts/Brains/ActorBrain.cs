@@ -48,7 +48,10 @@ public class ActorBrain : MonoBehaviour
         // disable on my units
         if(unitsImCommanding.Count > 0)
             foreach (UnitCapsule unit in unitsImCommanding)
-                unit.unitIsSelected = false;
+                unit.ChangeUnitSelection(false);
+
+        // reset their positions if needed
+        ResetUnitsPositions();
 
         if (ManagerMapHandler.Instance)
             ManagerMapHandler.Instance.NextPlayersTurn();
@@ -61,13 +64,13 @@ public class ActorBrain : MonoBehaviour
 
         if (unitsImCommanding.Count == 0)
             return;
-        unitsImCommanding[unitSelected].unitIsSelected = false;
+        unitsImCommanding[unitSelected].ChangeUnitSelection(false);
 
         unitSelected += 1;
         if (unitSelected >= unitsImCommanding.Count)
             unitSelected = 0;
 
-        unitsImCommanding[unitSelected].unitIsSelected = true;
+        unitsImCommanding[unitSelected].ChangeUnitSelection(true);
         bool foundTile = false;
         int unitTileId = 0;
         if (unitsImCommanding[unitSelected].tileImOn != null && ManagerMapHandler.Instance)// Set selected tile to the one our selected unit is standing on
@@ -117,6 +120,24 @@ public class ActorBrain : MonoBehaviour
             mainCamera.transform.LookAt(_newLookAt);
     }
 
+    private void ResetUnitsPositions()
+    {
+        if (unitsImCommanding.Count == 0 || !ManagerMapHandler.Instance)
+            return;
+
+        foreach (UnitCapsule unit in unitsImCommanding)
+            ManagerMapHandler.Instance.OfficiallyMoveUnit(unit.tileImOn, unit);
+    }
+
+    private void PreviewUnitMove()
+    {
+        // if we're trying to preview a unit on a tile it's already on, then we are officially moving it there
+        if (unitsImCommanding[unitSelected].transform.position == ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].transform.position)
+            ManagerMapHandler.Instance.OfficiallyMoveUnit(ManagerMapHandler.Instance.gridTilesGenerated[tileSelected], unitsImCommanding[unitSelected]);
+        else // then we just preview the spot
+            unitsImCommanding[unitSelected].transform.position = ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].transform.position;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -163,9 +184,9 @@ public class ActorBrain : MonoBehaviour
         }
 
         // Moving our selected unit
-        if (Input.GetKeyUp(myKeyMapPrefs.unitMove) && ManagerMapHandler.Instance) 
-            if(ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].isInRange || ManagerMapHandler.Instance.gridTilesGenerated[tileSelected] == unitsImCommanding[unitSelected].tileImOn)
-            unitsImCommanding[unitSelected].transform.position = ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].transform.position;
+        if (Input.GetKeyUp(myKeyMapPrefs.unitMove) && ManagerMapHandler.Instance)
+            if (ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].isInRange || ManagerMapHandler.Instance.gridTilesGenerated[tileSelected] == unitsImCommanding[unitSelected].tileImOn)
+                PreviewUnitMove();
 
         if (Input.GetKeyUp(myKeyMapPrefs.skipUnitTalk) && ManagerConversationHandler.Instance)
             ManagerConversationHandler.Instance.dialogueManager.FinishTypingOrNextDialogue();
@@ -212,7 +233,7 @@ public class ActorBrain : MonoBehaviour
                 defenseValue, otherBrain.unitsImCommanding[otherBrain.unitSelected].thisUnitData.thisUnitsStats.constitution);
         }
 
-        if (Input.GetKeyUp(myKeyMapPrefs.unitConfirmDefense))
+        if (Input.GetKeyUp(KeyCode.B)) // I Left This For You To Make A KeyCode Below Gabriel 
         {
             // Get reference to other player's brain
             ActorBrain otherBrain = null;
@@ -268,7 +289,7 @@ public class ActorButtonMap
     public KeyCode skipUnitTalk = KeyCode.Space;
     public KeyCode unitPlanAttack = KeyCode.A;
     public KeyCode calculateAttack = KeyCode.C;
-    public KeyCode unitConfirmDefense = KeyCode.B;    
+    //public KeyCode unitConfirmDefense = KeyCode.B; // Mostly Because I wasnt sure what it was doing
 
 
     //public ActorButtonMap(string _newSpkr)

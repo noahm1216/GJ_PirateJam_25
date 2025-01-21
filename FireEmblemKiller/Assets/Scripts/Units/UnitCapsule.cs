@@ -18,10 +18,12 @@ public class UnitCapsule : MonoBehaviour
     // and more things a unit might want to do
 
 
-    public void LateUpdate()
+    public void ChangeUnitSelection(bool _isSelected)
     {
+        unitIsSelected = _isSelected;
+
         if (selectedIndicator)
-            selectedIndicator.SetActive(unitIsSelected); // eventually this should just be a function called from the Brain once (passing if we are selecting or not)
+            selectedIndicator.SetActive(unitIsSelected);
     }
 
     public int CalculateAttack(UnitData unit)
