@@ -63,7 +63,7 @@ public class ActorBrain : MonoBehaviour
             ManagerMapHandler.Instance.ResetTraversableTileVisuals();
 
         if (unitsImCommanding.Count == 0)
-            return;
+        { Debug.Log("Cant Cycle Units With '0' Units In 'Units Im Commanding'"); return; }
         unitsImCommanding[unitSelected].ChangeUnitSelection(false);
 
         unitSelected += 1;
@@ -98,7 +98,7 @@ public class ActorBrain : MonoBehaviour
     public void ChangeTileSelected(int _tileJump)
     {
         if (!ManagerMapHandler.Instance || ManagerMapHandler.Instance.gridTilesGenerated.Count == 0)
-            return;
+        { Debug.Log("No Tiles Generated OR No 'Manager Map Handler Instance'"); return; }
 
         ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].ChangeSelection(false);
         tileSelected += _tileJump;
@@ -123,7 +123,7 @@ public class ActorBrain : MonoBehaviour
     private void ResetUnitsPositions()
     {
         if (unitsImCommanding.Count == 0 || !ManagerMapHandler.Instance)
-            return;
+        { Debug.Log("Not Commanding Any Units OR No 'Manager Map Handler Instance'"); return; }
 
         foreach (UnitCapsule unit in unitsImCommanding)
             ManagerMapHandler.Instance.OfficiallyMoveUnit(unit.tileImOn, unit);
@@ -150,12 +150,19 @@ public class ActorBrain : MonoBehaviour
 
             if (unitsImCommanding.Count > 0)
                 CheckInputs();            
-        }
+        }       
+
     }
+
     
+
     public void CheckInputs()
     {
-        Debug.Log("Press 'End' key to end your turn");
+        // if we are trying to change our key mapping then dont register any of these
+        if (ManagerKeyInputHandler.Instance && ManagerKeyInputHandler.Instance.changingAKeyNow)
+            return;
+
+            Debug.Log("Press 'End' key to end your turn");
         if (Input.GetKeyUp(myKeyMapPrefs.endTurn))
             EndMyTurn();
 
@@ -167,6 +174,9 @@ public class ActorBrain : MonoBehaviour
             ManagerConversationHandler.Instance.AddSpeakerToConversation(unitsImCommanding[unitSelected]);
             ManagerConversationHandler.Instance.AddDialogueToList(unitsImCommanding[unitSelected], "It's My Turn To Speak!", 0);
         }
+
+        if (Input.GetKeyUp(myKeyMapPrefs.changeKeysMenu) && ManagerKeyInputHandler.Instance)
+            ManagerKeyInputHandler.Instance.BrainRequestsKeyChange(this);
 
         if (Input.GetKeyUp(myKeyMapPrefs.unitsCycle))
             CycleMyUnits();
@@ -264,10 +274,33 @@ public class ActorBrain : MonoBehaviour
 [System.Serializable]
 public class ActorButtonMap
 {
-    public string keyMappingNickname;
+    public string keyMappingNickname = "Key Preferences";
+
+    public Dictionary<KeyCode, string> keyMappingDictionary = new Dictionary<KeyCode, string>
+    {
+        {KeyCode.UpArrow, "Select UP" },
+        {KeyCode.DownArrow, "Select Down" },
+        {KeyCode.RightArrow, "Select Right" },
+        {KeyCode.LeftArrow, "Select Left" },
+
+        {KeyCode.Return, "Select Active (Option 1)" },
+        {KeyCode.KeypadEnter, "Select Active (Option 2)" },
+        {KeyCode.Escape, "Cancel Active Option" },
+        {KeyCode.Backspace, "Remove Active Option" },
+
+        {KeyCode.End, "End Turn" },
+        {KeyCode.Tab, "Cycle Units" },
+        {KeyCode.M, "Unit Action: Move" },
+        {KeyCode.T, "Unit Action: Talk" },
+        {KeyCode.Space, "Skip / Next Dialogue" },
+        {KeyCode.K, "Open Key-Mapping Menu" },
+        {KeyCode.A, "Unit Action: Attack" },
+        {KeyCode.C, "Unit Action: Calculate" },
+
+    };
 
     [Space]
-    [Header("SELECT NAVIGATION\n_____________")]    
+    [Header("SELECT NAVIGATION\n_____________")]
     public KeyCode selectionUp = KeyCode.UpArrow;
     public KeyCode selectionDown = KeyCode.DownArrow;
     public KeyCode selectionRight = KeyCode.RightArrow;
@@ -281,12 +314,13 @@ public class ActorButtonMap
     public KeyCode removeActiveOption = KeyCode.Backspace;
 
     [Space]
-    [Header("ACTION HOTKEYS \n_____________")]
+    [Header("ACTION HOTKEYS \n_____________")] // Most of these will change as we complete a full design
     public KeyCode endTurn = KeyCode.End;
     public KeyCode unitsCycle = KeyCode.Tab;
     public KeyCode unitMove = KeyCode.M;
     public KeyCode unitTalk = KeyCode.T;
     public KeyCode skipUnitTalk = KeyCode.Space;
+    public KeyCode changeKeysMenu = KeyCode.K;
     public KeyCode unitPlanAttack = KeyCode.A;
     public KeyCode calculateAttack = KeyCode.C;
     //public KeyCode unitConfirmDefense = KeyCode.B; // Mostly Because I wasnt sure what it was doing
