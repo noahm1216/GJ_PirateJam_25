@@ -147,6 +147,15 @@ public class ActorBrain : MonoBehaviour
             unitsImCommanding[unitSelected].transform.position = ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].transform.position;
     }
 
+    private bool CheckIsInRange(UnitCapsule attacker, UnitCapsule defender)
+    {
+        Vector2 attacker_coord = new Vector2(attacker.tileImOn.transform.position.x, attacker.tileImOn.transform.position.z);
+        Vector2 defender_coord = new Vector2(defender.tileImOn.transform.position.x, defender.tileImOn.transform.position.z);
+        int dist = Mathf.RoundToInt(Mathf.Abs(defender_coord.x - attacker_coord.x) + Mathf.Abs(defender_coord.y - attacker_coord.y));
+        if (dist <= attacker.thisUnitData.range) return true;
+        else return false;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -267,19 +276,28 @@ public class ActorBrain : MonoBehaviour
                 else Debug.Log("Brain was not found. ERROR");
             }
 
-            // Calculate Damage Inflicted
-            int damageInflicted;
-            int attackDamage = unitsImCommanding[unitSelected].CalculateAttack(unitsImCommanding[unitSelected].thisUnitData);
-            int defenseValue = otherBrain.unitsImCommanding[otherBrain.unitSelected].CalculateDefense(otherBrain.unitsImCommanding[otherBrain.unitSelected].thisUnitData);
-            damageInflicted = attackDamage - defenseValue;
-            if (damageInflicted < 0) damageInflicted = 0;
-            List<UnitCapsule> unitsAffected = new List<UnitCapsule>();
-            unitsAffected.Add(otherBrain.unitsImCommanding[otherBrain.unitSelected]);
-            ManagerMapHandler.Instance.SendHPChangeToTarget(damageInflicted, otherBrain.unitsImCommanding[otherBrain.unitSelected]);
+            // Check if the defending unit is within the attacker's range, and if so, Calculate Damage inflicted
+            if (CheckIsInRange(unitsImCommanding[unitSelected], otherBrain.unitsImCommanding[otherBrain.unitSelected]) == true)
+            {
+                // Calculate Damage Inflicted
+                int damageInflicted;
+                int attackDamage = unitsImCommanding[unitSelected].CalculateAttack(unitsImCommanding[unitSelected].thisUnitData);
+                int defenseValue = otherBrain.unitsImCommanding[otherBrain.unitSelected].CalculateDefense(otherBrain.unitsImCommanding[otherBrain.unitSelected].thisUnitData);
+                damageInflicted = attackDamage - defenseValue;
+                if (damageInflicted < 0) damageInflicted = 0;
+                List<UnitCapsule> unitsAffected = new List<UnitCapsule>();
+                unitsAffected.Add(otherBrain.unitsImCommanding[otherBrain.unitSelected]);
+                ManagerMapHandler.Instance.SendHPChangeToTarget(damageInflicted, otherBrain.unitsImCommanding[otherBrain.unitSelected]);
 
-            hasInitiatedBattleForecast = false;
-            BattleForecastCanvas_go.SetActive(false);
-            otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
+                hasInitiatedBattleForecast = false;
+                BattleForecastCanvas_go.SetActive(false);
+                otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
+            }
+
+            else
+            {
+                Debug.Log("Out of Range!!!"); // TODO Display some sort of message on the UI to let the player know their unit is out of range
+            }
         }
     }
 }
