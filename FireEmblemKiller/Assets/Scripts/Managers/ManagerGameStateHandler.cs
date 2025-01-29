@@ -33,8 +33,9 @@ public class ManagerGameStateHandler : MonoBehaviour
     private void Start()
     {
         if (!FoundErrorsInReferences()) return;
-        canvasImgRootObj.SetActive(false);
+        
         canvasReloadButtonObj.SetActive(false);
+        canvasImgRootObj.SetActive(false);
 
     }
 
@@ -62,9 +63,10 @@ public class ManagerGameStateHandler : MonoBehaviour
         //if (gameActiveState == _newState) /// NOTE: actually we dont want to do this because we can use this to show the change in turn order on UI
         //{ Debug.Log($"WARNING: Tried Changing GameState To The Same State: {_newState} / Current State: {gameActiveState}"); return; }
 
+        gameActiveState = _newState;
         canvasReloadButtonObj.SetActive(false);
 
-        print($"Game State Changed and Taken in Effect {gameActiveState}");
+        //print($"Game State Changed and Taken in Effect {gameActiveState} ");
         switch (gameActiveState)
         {
             case GAMESTATE.PreBattle:
@@ -75,6 +77,9 @@ public class ManagerGameStateHandler : MonoBehaviour
                 break;
             case GAMESTATE.PostBattle:
                 StartCoroutine(G_State_PostBattle(_brain));
+                break;
+            case GAMESTATE.None:
+                Debug.Log("WARNING: No active Game State Condition");
                 break;
             default:
                 Debug.Log("ERROR: No active Game State Condition");
@@ -90,10 +95,11 @@ public class ManagerGameStateHandler : MonoBehaviour
             canvasImgRootObj.SetActive(true);
             textGameState.text = gameActiveState.ToString();
             // Introduction to the challenge
-            textInformationHeader.text = "OBJECTIVE: Leave No Enemy Units Alive.";
+            textInformationHeader.text = "<color=blue>OBJECTIVE: Leave No Enemy Units Alive.";
             KeyCode controlKey = KeyCode.K;
-            textInformationBody.text = $"Use your units to: Move, Attack, and Talk your way to victory. Press {controlKey} to see a list of controls when its your turn.\n\n\n (also thank you for trying our demo prototype!)";
-            for(int i = 0; i < 5; i++)
+            textInformationBody.text = $"Use your units to: Move, Attack, and Talk your way to victory. Press {controlKey} to see a list of controls when its your turn.\n\n (also thank you for trying our demo prototype!) \n\n.<color=red>";
+            yield return new WaitForSeconds(5);
+            for (int i = 0; i < 5; i++)
             {
                 textInformationBody.text += $"{5 - i}...";
                 yield return new WaitForSeconds(1);
@@ -117,14 +123,15 @@ public class ManagerGameStateHandler : MonoBehaviour
             // say who is going first
             if (!_brain)
             {
-                textInformationHeader.text = "TURN ORDER: Blue Player's Turn";
-                textInformationBody.text = "Press K To See The Controls.";
+                textInformationHeader.text = "<color=blue>TURN ORDER: Blue Player's Turn";
+                textInformationBody.text = "Press K To See The Controls. \n\n.<color=red>";
             }
             else
             {
-                textInformationHeader.text = $"TURN ORDER: {_brain.playerName}'s Turn";
-                textInformationBody.text = $"Press {_brain.myKeyMapPrefs.changeKeysMenu} To See The Controls.";
+                textInformationHeader.text = $"<color=blue>TURN ORDER: {_brain.playerName}'s Turn";
+                textInformationBody.text = $"Press {_brain.myKeyMapPrefs.changeKeysMenu} To See The Controls. \n\n.<color=red>";
             }
+            yield return new WaitForSeconds(5);
             for (int i = 0; i < 5; i++)
             {
                 textInformationBody.text += $"{5 - i}...";
@@ -143,14 +150,15 @@ public class ManagerGameStateHandler : MonoBehaviour
             // say who won
             if (!_brain)
             {
-                textInformationHeader.text = "END GAME: No Players Survived";
-                textInformationBody.text = "Missing Information Leads Us To Believe NO WINNER was left... Sometimes this is the reality of war, and a tragedy for everyone involved. The echoes of this battle will be felt across the universe. \n\n\n (thanks for trying our game/demo)";
+                textInformationHeader.text = "<color=blue>END GAME: No Players Survived";
+                textInformationBody.text = "Missing Information Leads Us To Believe NO WINNER was left... Sometimes this is the reality of war, and a tragedy for everyone involved. The echoes of this battle will be felt across the universe. \n\n (thanks for trying our game/demo) \n\n.<color=red>";
             }
             else
             {
-                textInformationHeader.text = $"END GAME: The Player With Units Left: {_brain.playerName}";
-                textInformationBody.text = $"War is a violent act that pits ideals against each other and the winner is defined by the survivors. We simulate war so we can understand the world and ourselves and today the one who will tell this story is {_brain.playerName}.\n\n\n (also thank you for trying our demo prototype!)";
-            }            
+                textInformationHeader.text = $"<color=blue>END GAME: The Player With Units Left: {_brain.playerName}";
+                textInformationBody.text = $"War is a violent act that pits ideals against each other and the winner is defined by the survivors. We simulate war so we can understand the world and ourselves and today the one who will tell this story is {_brain.playerName}.\n\n (also thank you for trying our demo prototype!) \n\n.<color=red>";
+            }
+            yield return new WaitForSeconds(5);
             for (int i = 0; i < 5; i++)
             {
                 textInformationBody.text += $"{5 - i}...";
