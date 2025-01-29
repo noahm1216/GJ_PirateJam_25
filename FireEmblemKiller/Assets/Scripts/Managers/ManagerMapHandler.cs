@@ -25,7 +25,7 @@ public class ManagerMapHandler : MonoBehaviour
     public List<UnitCapsule> spawnedUnits = new List<UnitCapsule>(); // the units we'll spawns
     private Transform spawnedUnitsParent; // this is generated at runtime to hold units
 
-    private ActorBrain currentPlayersTurn; // the current player making moves
+    public ActorBrain currentPlayersTurn { get; private set; } // the current player making moves
 
 
     private void Awake()
@@ -41,6 +41,9 @@ public class ManagerMapHandler : MonoBehaviour
     {
         if (spawnMapOnStart)
             InitializeGrid(mapSize, mapPos, posIsCenter);
+
+        if (ManagerGameStateHandler.Instance)
+            ManagerGameStateHandler.Instance.ChangeGameState(ManagerGameStateHandler.GAMESTATE.PreBattle, null);
 
     }
 
@@ -198,7 +201,7 @@ public class ManagerMapHandler : MonoBehaviour
                 }
             }
             //print("Next Player Turn - Break");
-        }
+        }              
 
     }
 
