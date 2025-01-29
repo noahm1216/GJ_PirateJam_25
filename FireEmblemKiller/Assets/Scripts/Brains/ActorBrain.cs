@@ -17,7 +17,9 @@ public class ActorBrain : MonoBehaviour
     private int unitSelected, tileSelected;
     private float turnChangerTimeStamp, turnChangerTimeWait = 0.2f;
 
+    // Battle Forecast Logic
     public GameObject BattleForecastCanvas_go;
+    private bool hasInitiatedBattleForecast;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,8 @@ public class ActorBrain : MonoBehaviour
 
         if (!mainCamera)
             mainCamera = Camera.main;
+
+        hasInitiatedBattleForecast = false;
     }
 
     public void AddOneUnitToList(UnitCapsule _unitToAdd)
@@ -93,6 +97,11 @@ public class ActorBrain : MonoBehaviour
         if (ManagerMapHandler.Instance)
             ManagerMapHandler.Instance.ShowTraversableTiles(unitsImCommanding[unitSelected].tileImOn.transform, unitsImCommanding[unitSelected].thisUnitData.speed);
 
+        if (hasInitiatedBattleForecast)
+        {
+            ManagerBattleForecast.Instance.UpdateBattleForecast(unitsImCommanding[unitSelected],
+                unitsImCommanding[unitSelected].CalculateAttack(unitsImCommanding[unitSelected].thisUnitData), 0, true);
+        }
     }
 
     public void ChangeTileSelected(int _tileJump)
@@ -227,6 +236,7 @@ public class ActorBrain : MonoBehaviour
 
             // Activate and Update Battle Forecast
             BattleForecastCanvas_go.SetActive(true);
+
             // Calculate Damage Inflicted
             int damageInflicted;
             int attackDamage = unitsImCommanding[unitSelected].CalculateAttack(unitsImCommanding[unitSelected].thisUnitData);
@@ -236,11 +246,18 @@ public class ActorBrain : MonoBehaviour
             List<UnitCapsule> unitsAffected = new List<UnitCapsule>();
             unitsAffected.Add(otherBrain.unitsImCommanding[otherBrain.unitSelected]);
             ManagerMapHandler.Instance.SendHPChangeToTarget(damageInflicted, otherBrain.unitsImCommanding[otherBrain.unitSelected]);
-            //Set Forecast Data
-            ManagerBattleForecast.Instance.SetForecastData(unitsImCommanding[unitSelected].thisUnitData.unitName,
-                otherBrain.unitsImCommanding[otherBrain.unitSelected].thisUnitData.unitName,
-                attackDamage, unitsImCommanding[unitSelected].thisUnitData.speed,
-                defenseValue, otherBrain.unitsImCommanding[otherBrain.unitSelected].thisUnitData.thisUnitsStats.constitution);
+
+            //Update Battle Forecast
+            if (hasInitiatedBattleForecast == false)
+            {
+                ManagerBattleForecast.Instance.UpdateBattleForecast(unitsImCommanding[unitSelected], attackDamage, defenseValue, true);
+                ManagerBattleForecast.Instance.UpdateBattleForecast(otherBrain.unitsImCommanding[otherBrain.unitSelected], attackDamage, defenseValue, false);
+                hasInitiatedBattleForecast = true;
+            }
+            else if (hasInitiatedBattleForecast == true)
+            {
+                ManagerBattleForecast.Instance.UpdateBattleForecast(otherBrain.unitsImCommanding[otherBrain.unitSelected], attackDamage, defenseValue, false);
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.B)) // I Left This For You To Make A KeyCode Below Gabriel 
@@ -266,7 +283,3 @@ public class ActorBrain : MonoBehaviour
         }
     }
 }
-
-
-
-

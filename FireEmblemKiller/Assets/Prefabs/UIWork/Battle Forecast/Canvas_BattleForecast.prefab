@@ -121,6 +121,10 @@ MonoBehaviour:
   speedText: {fileID: 2600355874174477212}
   defenseText: {fileID: 6715530294068038481}
   constitutionText: {fileID: 8101854255960697650}
+  attackerSprite: {fileID: 0}
+  defenderSprite: {fileID: 0}
+  attackerImage: {fileID: 6172307249246496699}
+  defenderImage: {fileID: 915318390994676026}
 --- !u!1 &1550281801180172159
 GameObject:
   m_ObjectHideFlags: 0

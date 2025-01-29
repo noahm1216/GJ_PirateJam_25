@@ -155,6 +155,57 @@ MonoBehaviour:
   playerName: Blue Boi Humans
   ownedByAHumanPlayer: 0
   myTurn: 0
+  myKeyMapPrefs:
+    keyMappingNickname: Key Preferences
+    keyMappingList:
+    - keyMapPurpose: Select UP
+      keycodeHotkey: 273
+    - keyMapPurpose: Select Down
+      keycodeHotkey: 274
+    - keyMapPurpose: Select Right
+      keycodeHotkey: 275
+    - keyMapPurpose: Select Left
+      keycodeHotkey: 276
+    - keyMapPurpose: Select Active (Option 1)
+      keycodeHotkey: 13
+    - keyMapPurpose: Select Active (Option 2)
+      keycodeHotkey: 271
+    - keyMapPurpose: Cancel Active Option
+      keycodeHotkey: 27
+    - keyMapPurpose: Remove Active Option
+      keycodeHotkey: 8
+    - keyMapPurpose: End Turn
+      keycodeHotkey: 279
+    - keyMapPurpose: Cycle Units
+      keycodeHotkey: 9
+    - keyMapPurpose: 'Unit Action: Move'
+      keycodeHotkey: 109
+    - keyMapPurpose: 'Unit Action: Talk'
+      keycodeHotkey: 116
+    - keyMapPurpose: Skip / Next Dialogue
+      keycodeHotkey: 32
+    - keyMapPurpose: Open Key-Mapping Menu
+      keycodeHotkey: 107
+    - keyMapPurpose: 'Unit Action: Attack'
+      keycodeHotkey: 97
+    - keyMapPurpose: 'Unit Action: Calculate'
+      keycodeHotkey: 99
+    selectionUp: 273
+    selectionDown: 274
+    selectionRight: 275
+    selectionLeft: 276
+    selectActiveOption1: 13
+    selectActiveOption2: 271
+    cancelActiveOption: 27
+    removeActiveOption: 8
+    endTurn: 279
+    unitsCycle: 9
+    unitMove: 109
+    unitTalk: 116
+    skipUnitTalk: 32
+    changeKeysMenu: 107
+    unitPlanAttack: 97
+    calculateAttack: 99
   myUnitPrefabs:
   - {fileID: 8013205235207748160, guid: 3de397e938d5bc24886e6899b8dd77a7, type: 3}
   - {fileID: 8013205235207748160, guid: 31271de32111de54596c2daea0f0c245, type: 3}
@@ -484,6 +535,18 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!114 &755797034 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 915318390994676026, guid: cf5e9370ac46d462a8a67fbc84f1d0e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6899367917759500332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +596,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1312871221 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6172307249246496699, guid: cf5e9370ac46d462a8a67fbc84f1d0e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 6899367917759500332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1691305826
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,6 +640,57 @@ MonoBehaviour:
   playerName: Earth Rangers
   ownedByAHumanPlayer: 0
   myTurn: 0
+  myKeyMapPrefs:
+    keyMappingNickname: Key Preferences
+    keyMappingList:
+    - keyMapPurpose: Select UP
+      keycodeHotkey: 273
+    - keyMapPurpose: Select Down
+      keycodeHotkey: 274
+    - keyMapPurpose: Select Right
+      keycodeHotkey: 275
+    - keyMapPurpose: Select Left
+      keycodeHotkey: 276
+    - keyMapPurpose: Select Active (Option 1)
+      keycodeHotkey: 13
+    - keyMapPurpose: Select Active (Option 2)
+      keycodeHotkey: 271
+    - keyMapPurpose: Cancel Active Option
+      keycodeHotkey: 27
+    - keyMapPurpose: Remove Active Option
+      keycodeHotkey: 8
+    - keyMapPurpose: End Turn
+      keycodeHotkey: 279
+    - keyMapPurpose: Cycle Units
+      keycodeHotkey: 9
+    - keyMapPurpose: 'Unit Action: Move'
+      keycodeHotkey: 109
+    - keyMapPurpose: 'Unit Action: Talk'
+      keycodeHotkey: 116
+    - keyMapPurpose: Skip / Next Dialogue
+      keycodeHotkey: 32
+    - keyMapPurpose: Open Key-Mapping Menu
+      keycodeHotkey: 107
+    - keyMapPurpose: 'Unit Action: Attack'
+      keycodeHotkey: 97
+    - keyMapPurpose: 'Unit Action: Calculate'
+      keycodeHotkey: 99
+    selectionUp: 273
+    selectionDown: 274
+    selectionRight: 275
+    selectionLeft: 276
+    selectActiveOption1: 13
+    selectActiveOption2: 271
+    cancelActiveOption: 27
+    removeActiveOption: 8
+    endTurn: 279
+    unitsCycle: 9
+    unitMove: 109
+    unitTalk: 116
+    skipUnitTalk: 32
+    changeKeysMenu: 107
+    unitPlanAttack: 97
+    calculateAttack: 99
   myUnitPrefabs:
   - {fileID: 2547011973050019379, guid: 9a881096ce3ade94cbce0c13cc72171b, type: 3}
   - {fileID: 2547011973050019379, guid: 24f89c7df852506468fa0f35fe5d18a6, type: 3}
@@ -603,6 +729,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_BattleForecast
       objectReference: {fileID: 0}
+    - target: {fileID: 4786843591618224820, guid: cf5e9370ac46d462a8a67fbc84f1d0e2,
+        type: 3}
+      propertyPath: attackerImage
+      value: 
+      objectReference: {fileID: 1312871221}
+    - target: {fileID: 4786843591618224820, guid: cf5e9370ac46d462a8a67fbc84f1d0e2,
+        type: 3}
+      propertyPath: defenderImage
+      value: 
+      objectReference: {fileID: 755797034}
     - target: {fileID: 7108163406916776445, guid: cf5e9370ac46d462a8a67fbc84f1d0e2,
         type: 3}
       propertyPath: m_Pivot.x
