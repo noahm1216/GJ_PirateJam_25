@@ -222,6 +222,7 @@ public class ActorBrain : MonoBehaviour
             // Send this result to ManagerMapHandler.SendHPChangToTarget(int _change, List<UnitCapsule> _unitsAffected)
         }
 
+        // Plan an attack -- uses the battle forecast
         if (Input.GetKeyUp(myKeyMapPrefs.unitPlanAttack)) // attempt to attack an enemy unit with selected unit
         {
             // Get reference to other player's brain
@@ -234,18 +235,12 @@ public class ActorBrain : MonoBehaviour
             }
             otherBrain?.CycleMyUnits();
 
-            // Activate and Update Battle Forecast
-            BattleForecastCanvas_go.SetActive(true);
-
-            // Calculate Damage Inflicted
-            int damageInflicted;
+            // Calculate Damage and Defense Values for the Forecast
             int attackDamage = unitsImCommanding[unitSelected].CalculateAttack(unitsImCommanding[unitSelected].thisUnitData);
             int defenseValue = otherBrain.unitsImCommanding[otherBrain.unitSelected].CalculateDefense(otherBrain.unitsImCommanding[otherBrain.unitSelected].thisUnitData);
-            damageInflicted = attackDamage - defenseValue;
-            if (damageInflicted < 0) damageInflicted = 0;
-            List<UnitCapsule> unitsAffected = new List<UnitCapsule>();
-            unitsAffected.Add(otherBrain.unitsImCommanding[otherBrain.unitSelected]);
-            ManagerMapHandler.Instance.SendHPChangeToTarget(damageInflicted, otherBrain.unitsImCommanding[otherBrain.unitSelected]);
+
+            // Activate and Update Battle Forecast
+            BattleForecastCanvas_go.SetActive(true);
 
             //Update Battle Forecast
             if (hasInitiatedBattleForecast == false)
@@ -260,7 +255,8 @@ public class ActorBrain : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.B)) // I Left This For You To Make A KeyCode Below Gabriel 
+        // Battle with selected units - inflict and receive damage
+        if (Input.GetKeyUp(KeyCode.B) && hasInitiatedBattleForecast) // I Left This For You To Make A KeyCode Below Gabriel 
         {
             // Get reference to other player's brain
             ActorBrain otherBrain = null;
@@ -280,6 +276,10 @@ public class ActorBrain : MonoBehaviour
             List<UnitCapsule> unitsAffected = new List<UnitCapsule>();
             unitsAffected.Add(otherBrain.unitsImCommanding[otherBrain.unitSelected]);
             ManagerMapHandler.Instance.SendHPChangeToTarget(damageInflicted, otherBrain.unitsImCommanding[otherBrain.unitSelected]);
+
+            hasInitiatedBattleForecast = false;
+            BattleForecastCanvas_go.SetActive(false);
+            otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
         }
     }
 }
