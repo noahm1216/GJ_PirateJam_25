@@ -18,9 +18,9 @@ public class ActorBrain : MonoBehaviour
     private float turnChangerTimeStamp, turnChangerTimeWait = 0.2f;
 
     // Battle Forecast Logic
-    public GameObject BattleForecastCanvas_go;
+    private GameObject BattleForecastCanvas_go;
     private bool hasInitiatedBattleForecast;
-    public GameObject UnitDataUICanvas_go;
+    private GameObject UnitDataUICanvas_go;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +30,9 @@ public class ActorBrain : MonoBehaviour
 
         if (!mainCamera)
             mainCamera = Camera.main;
+
+        if (ManagerBattleForecast.Instance) BattleForecastCanvas_go = ManagerBattleForecast.Instance.gameObject;
+        if (ManagerUnitData.Instance) UnitDataUICanvas_go = ManagerUnitData.Instance.gameObject;
 
         hasInitiatedBattleForecast = false;
     }
