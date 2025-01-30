@@ -85,7 +85,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2812843445013952286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,8 +116,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myUnit: {fileID: 0}
-  uiObj_HpBar_Root: {fileID: 3306220234348817952}
-  uiObj_HpBar_HealthTop: {fileID: 5269935685354806857}
+  uiImg_HpBar_HealthFront: {fileID: 1943085877862308192}
+  healthVisualMarks:
+  - healthMinimum: 1
+    healthBarColor: {r: 0.010226965, g: 1, b: 0, a: 1}
+  - healthMinimum: 0.625
+    healthBarColor: {r: 1, g: 0.9538098, b: 0, a: 1}
+  - healthMinimum: 0.355
+    healthBarColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &1611505099772879372
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -236,21 +242,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b1344e5d8f78cc40ac4692bccd396e7, type: 3}
+--- !u!114 &1943085877862308192 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 912556263705869164, guid: 4b1344e5d8f78cc40ac4692bccd396e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1611505099772879372}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &2506684912662698635 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3788864275689650311, guid: 4b1344e5d8f78cc40ac4692bccd396e7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1611505099772879372}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3306220234348817952 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4305224161491455020, guid: 4b1344e5d8f78cc40ac4692bccd396e7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1611505099772879372}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &5269935685354806857 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6881401051288386629, guid: 4b1344e5d8f78cc40ac4692bccd396e7,
     type: 3}
   m_PrefabInstance: {fileID: 1611505099772879372}
   m_PrefabAsset: {fileID: 0}

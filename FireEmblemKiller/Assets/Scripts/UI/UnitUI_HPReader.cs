@@ -1,12 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class UnitUI_HPReader : MonoBehaviour
 {
     public UnitCapsule myUnit;
-    public GameObject uiObj_HpBar_Root; // we dont use this, but maybe we will want to turn it off/ hide it in some scenario
-    public Transform uiObj_HpBar_HealthTop; // the green / top bar that shows the current HP
+    public Image uiImg_HpBar_HealthFront; // the green / top bar that shows the current HP
+    public List<CustomColorIntegers> healthVisualMarks = new List<CustomColorIntegers>();
+
 
     private float percetnHp = 0;
     private float delayTimeStamp, delayTimer = 2f;
@@ -33,8 +34,25 @@ public class UnitUI_HPReader : MonoBehaviour
             if (percetnHp > myUnit.thisUnitData.healthPoints.y) percetnHp = 1;
         }
 
-        if (uiObj_HpBar_HealthTop)
-            uiObj_HpBar_HealthTop.localScale = new Vector3(percetnHp, 1, 1);
+        if (uiImg_HpBar_HealthFront)
+        {
+            uiImg_HpBar_HealthFront.transform.localScale = new Vector3(percetnHp, 1, 1);
+            uiImg_HpBar_HealthFront.color = CurrentColorToUse();
+        }
+    }
+
+    private Color CurrentColorToUse()
+    {
+        if (healthVisualMarks.Count == 0)
+            return Color.green;
+
+        int closestValueID = 0;
+        for (int i = 0; i < healthVisualMarks.Count; i++)
+            if (healthVisualMarks[i].healthMinimum >= percetnHp)
+            { closestValueID = i; print($"Value is: {healthVisualMarks[i].healthMinimum} >= {percetnHp} - Should be Color {healthVisualMarks[closestValueID].healthBarColor}"); }
+            
+
+        return healthVisualMarks[closestValueID].healthBarColor;
     }
 
 
@@ -47,7 +65,7 @@ public class UnitUI_HPReader : MonoBehaviour
 public class CustomColorIntegers
 {
     [Range(0,1)]
-    public float healthMinium = 0;  
+    public float healthMinimum = 0;  
     public Color healthBarColor = Color.green;
 
     //public CustomColorIntegers(string _newPurpose, KeyCode _newKc)
