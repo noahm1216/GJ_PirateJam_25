@@ -161,6 +161,9 @@ public class ActorBrain : MonoBehaviour
         Vector2 attacker_coord = new Vector2(attacker.tileImOn.transform.position.x, attacker.tileImOn.transform.position.z);
         Vector2 defender_coord = new Vector2(defender.tileImOn.transform.position.x, defender.tileImOn.transform.position.z);
         int dist = Mathf.RoundToInt(Mathf.Abs(defender_coord.x - attacker_coord.x) + Mathf.Abs(defender_coord.y - attacker_coord.y));
+        Debug.Log($"Attacker's tile position is: {attacker.tileImOn.transform.position.x}, {attacker.tileImOn.transform.position.z}");
+        Debug.Log($"Defender's tile position is: {defender.tileImOn.transform.position.x}, {defender.tileImOn.transform.position.z}");
+        Debug.Log($"Distance between attacker & defender is: {dist} and attacker's range is: {attacker.thisUnitData.range}");
         if (dist <= attacker.thisUnitData.range) return true;
         else return false;
     }
@@ -305,6 +308,10 @@ public class ActorBrain : MonoBehaviour
                     UnitCapsule deadUnit = otherBrain.unitsImCommanding[otherBrain.unitSelected];
                     otherBrain.unitsImCommanding.Remove(deadUnit);
                     Destroy(deadUnit.gameObject);
+                    if (otherBrain.unitsImCommanding.Count == 0)
+                    {
+                        ManagerGameStateHandler.Instance.ChangeGameState(ManagerGameStateHandler.GAMESTATE.PostBattle, this);
+                    }
                 }
 
                 hasInitiatedBattleForecast = false;
