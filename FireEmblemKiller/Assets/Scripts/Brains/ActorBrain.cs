@@ -156,6 +156,21 @@ public class ActorBrain : MonoBehaviour
             unitsImCommanding[unitSelected].transform.position = ManagerMapHandler.Instance.gridTilesGenerated[tileSelected].transform.position;
     }
 
+
+    private ActorBrain GetOtherBrain()
+    {
+        // Get reference to other player's brain
+        ActorBrain otherBrain = null;
+        foreach (ActorBrain ab in ManagerMapHandler.Instance.sampleBrainPlayers)
+        {
+            if (ab == this) continue;
+            else if (ab != this) otherBrain = ab;
+            else Debug.Log("Brain was not found. ERROR");
+        }
+
+        return otherBrain;
+    }
+
     private bool CheckIsInRange(UnitCapsule attacker, UnitCapsule defender)
     {
         Vector2 attacker_coord = new Vector2(attacker.tileImOn.transform.position.x, attacker.tileImOn.transform.position.z);
@@ -283,13 +298,7 @@ public class ActorBrain : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.B) && hasInitiatedBattleForecast) // I Left This For You To Make A KeyCode Below Gabriel 
         {
             // Get reference to other player's brain
-            ActorBrain otherBrain = null;
-            foreach (ActorBrain ab in ManagerMapHandler.Instance.sampleBrainPlayers)
-            {
-                if (ab == this) continue;
-                else if (ab != this) otherBrain = ab;
-                else Debug.Log("Brain was not found. ERROR");
-            }
+            ActorBrain otherBrain = GetOtherBrain();
 
             // Check if the defending unit is within the attacker's range, and if so, Calculate Damage inflicted
             if (CheckIsInRange(unitsImCommanding[unitSelected], otherBrain.unitsImCommanding[otherBrain.unitSelected]) == true)
@@ -324,6 +333,22 @@ public class ActorBrain : MonoBehaviour
             else
             {
                 Debug.Log("Out of Range!!!"); // TODO Display some sort of message on the UI to let the player know their unit is out of range
+            }
+        }
+
+        if (Input.GetKeyUp(myKeyMapPrefs.cancelActiveOption))
+        {
+            if (hasInitiatedBattleForecast)
+            {
+                BattleForecastCanvas_go.SetActive(false);
+                UnitDataUICanvas_go.SetActive(true);
+                foreach (UnitCapsule unit in unitsImCommanding)
+                {
+                    if (unit.unitIsSelected) ManagerUnitData.Instance.UpdateUnitDataUI(unit);
+                }
+                ActorBrain otherBrain = GetOtherBrain();
+                foreach (UnitCapsule unit in otherBrain.unitsImCommanding) otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
+                hasInitiatedBattleForecast = false;
             }
         }
     }
