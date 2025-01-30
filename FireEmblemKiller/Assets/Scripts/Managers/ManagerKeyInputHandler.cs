@@ -189,6 +189,7 @@ public class ActorButtonMap
         new KeyMapCustomDict("Open Key-Mapping Menu" , KeyCode.K),
         new KeyMapCustomDict("Unit Action: Attack", KeyCode.A ),
         new KeyMapCustomDict( "Unit Action: Calculate", KeyCode.C ),
+        new KeyMapCustomDict( "Unit Action: Confirm Attack", KeyCode.B ),
     };
 
  
@@ -217,7 +218,7 @@ public class ActorButtonMap
     public KeyCode changeKeysMenu = KeyCode.K;
     public KeyCode unitPlanAttack = KeyCode.A;
     public KeyCode calculateAttack = KeyCode.C;
-    //public KeyCode unitConfirmDefense = KeyCode.B; // Mostly Because I wasnt sure what it was doing
+    public KeyCode unitConfirmAttack = KeyCode.B; // Mostly Because I wasnt sure what it was doing
 
 
     //public ActorButtonMap(string _newSpkr)

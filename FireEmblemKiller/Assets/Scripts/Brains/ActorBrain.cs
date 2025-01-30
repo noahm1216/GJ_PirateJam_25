@@ -11,7 +11,7 @@ public class ActorBrain : MonoBehaviour
     public List<Transform> myUnitPrefabs = new List<Transform>();
 
     // During Map
-    private List<UnitCapsule> unitsImCommanding = new List<UnitCapsule>();
+    public List<UnitCapsule> unitsImCommanding { get; private set; } = new List<UnitCapsule>();
 
     private Camera mainCamera;
     private int unitSelected, tileSelected;

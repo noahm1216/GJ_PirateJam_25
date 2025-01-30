@@ -120,11 +120,49 @@ public class ManagerMapHandler : MonoBehaviour
         }
 
 
-        foreach(UnitCapsule unit in spawnedUnits) // placing units || TODO - figure out a pattern or sample way to design basic spawns that are more interesting
-        {
-            unit.ChangeUnitSelection(false); // deselect all units
+        #region Attemping More Interesting Spawn
+        //int tilesDividedEvenlyByPlayer = sampleBrainPlayers.Count / gridTilesGenerated.Count; // if 20 tiles, 2 brains... 10-tiles per brain
+        //int tilesChecked = 0; // tracks tiles as we move between players (not optimized but easier for my brain right now)
+        //for (int i = 0; i < sampleBrainPlayers.Count; i++)
+        //{
+        //    // get our possible tiles
+        //    MapTileData[] freeTileInRange = new MapTileData[tilesDividedEvenlyByPlayer];
+        //    for(int t = 0; t < tilesDividedEvenlyByPlayer; t++)
+        //        freeTileInRange[t] = gridTilesGenerated[tilesChecked]; // adds our possible tiles to the array
 
-            foreach(MapTileData tile in gridTilesGenerated)
+        //    int availableTiles = tilesDividedEvenlyByPlayer;
+        //    foreach (UnitCapsule unit in sampleBrainPlayers[i].unitsImCommanding) // placing units || TODO - figure out a pattern or sample way to design basic spawns that are more interesting
+        //    {
+        //        unit.ChangeUnitSelection(false); // deselect all units
+        //        // place unit on tile if free
+        //        foreach (MapTileData tile in freeTileInRange)
+        //        {
+        //            tilesChecked++;
+        //            if (tile.TileIsFree())
+        //            {
+        //                //print($"Tile: {tile.transform.name} - is Free For: {unit.thisUnitData.unitName}");
+        //                unit.transform.position = tile.transform.position;
+        //                tile.unitOnThisTile = unit;
+        //                unit.tileImOn = tile;
+        //                break;
+        //            }
+        //        }
+
+        //    }
+
+        //}
+        #endregion Attemping More Interesting Spawn
+
+        // WE WILL REPLACE THIS SOON
+        foreach (UnitCapsule unit in spawnedUnits) // placing units || TODO - figure out a pattern or sample way to design basic spawns that are more interesting
+        {
+
+            // change the order depending on how many brains we have
+            // we have 3 brians
+            // divide up how many tiles we give each brain ( evenly into sections)
+            // for each section of tiles spawn units
+
+            foreach (MapTileData tile in gridTilesGenerated)
             {
                 if (tile.TileIsFree())
                 {
@@ -136,6 +174,8 @@ public class ManagerMapHandler : MonoBehaviour
                 }
             }
         }
+        //END OF WE WILL REPLACE THIS SOON
+
         NextPlayersTurn(); // assign whose turn it is
     }
 
@@ -201,6 +241,8 @@ public class ManagerMapHandler : MonoBehaviour
                 }
             }
             //print("Next Player Turn - Break");
+            if (ManagerGameStateHandler.Instance)
+                ManagerGameStateHandler.Instance.ChangeGameState(ManagerGameStateHandler.GAMESTATE.MapBattle, currentPlayersTurn);
         }              
 
     }

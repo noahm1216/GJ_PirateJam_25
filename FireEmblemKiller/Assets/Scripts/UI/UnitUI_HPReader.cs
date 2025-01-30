@@ -49,7 +49,7 @@ public class UnitUI_HPReader : MonoBehaviour
         int closestValueID = 0;
         for (int i = 0; i < healthVisualMarks.Count; i++)
             if (healthVisualMarks[i].healthMinimum >= percetnHp)
-            { closestValueID = i; print($"Value is: {healthVisualMarks[i].healthMinimum} >= {percetnHp} - Should be Color {healthVisualMarks[closestValueID].healthBarColor}"); }
+                closestValueID = i;
             
 
         return healthVisualMarks[closestValueID].healthBarColor;
