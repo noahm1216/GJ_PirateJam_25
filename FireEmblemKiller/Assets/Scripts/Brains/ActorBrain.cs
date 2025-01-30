@@ -20,6 +20,7 @@ public class ActorBrain : MonoBehaviour
     // Battle Forecast Logic
     public GameObject BattleForecastCanvas_go;
     private bool hasInitiatedBattleForecast;
+    public GameObject UnitDataUICanvas_go;
 
     // Start is called before the first frame update
     void Start()
@@ -101,6 +102,11 @@ public class ActorBrain : MonoBehaviour
         {
             ManagerBattleForecast.Instance.UpdateBattleForecast(unitsImCommanding[unitSelected],
                 unitsImCommanding[unitSelected].CalculateAttack(unitsImCommanding[unitSelected].thisUnitData), 0, true);
+        }
+        else
+        {
+            Debug.Log("Trying to get: " + unitsImCommanding[unitSelected]);
+            ManagerUnitData.Instance.UpdateUnitDataUI(unitsImCommanding[unitSelected]);
         }
     }
 
@@ -250,6 +256,7 @@ public class ActorBrain : MonoBehaviour
 
             // Activate and Update Battle Forecast
             BattleForecastCanvas_go.SetActive(true);
+            UnitDataUICanvas_go.SetActive(false);
 
             //Update Battle Forecast
             if (hasInitiatedBattleForecast == false)
@@ -292,6 +299,8 @@ public class ActorBrain : MonoBehaviour
                 hasInitiatedBattleForecast = false;
                 BattleForecastCanvas_go.SetActive(false);
                 otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
+                UnitDataUICanvas_go.SetActive(true);
+                ManagerUnitData.Instance.UpdateUnitDataUI(unitsImCommanding[unitSelected]);
             }
 
             else
