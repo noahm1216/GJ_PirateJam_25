@@ -58,7 +58,7 @@ MonoBehaviour:
     unitPrefab: {fileID: 0}
     level: 0
     experience: {x: 0, y: 0}
-    healthPoints: {x: 10, y: 0}
+    healthPoints: {x: 10, y: 10}
     speed: 7
     range: 1
     thisUnitsStats:

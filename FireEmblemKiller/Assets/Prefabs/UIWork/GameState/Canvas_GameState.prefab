@@ -597,7 +597,7 @@ GameObject:
   - component: {fileID: 8965467493701528611}
   - component: {fileID: 6969520045218272517}
   m_Layer: 5
-  m_Name: Retry Text (TMP)
+  m_Name: Button Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -650,7 +650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TRY AGAIN
+  m_text: CONTINUE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -842,7 +842,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3909061886488039830}
         m_TargetAssemblyTypeName: ManagerGameStateHandler, Assembly-CSharp
-        m_MethodName: ReloadCurrentScene
+        m_MethodName: ContinueButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -98,18 +98,10 @@ public class ManagerGameStateHandler : MonoBehaviour
             textInformationHeader.text = "<color=blue>OBJECTIVE: Leave No Enemy Units Alive.";
             KeyCode controlKey = KeyCode.K;
             textInformationBody.text = $"Use your units to: Move, Attack, and Talk your way to victory. Press {controlKey} to see a list of controls when its your turn.\n\n (also thank you for trying our demo prototype!) \n\n.<color=red>";
-            yield return new WaitForSeconds(5);
-            for (int i = 0; i < 5; i++)
-            {
-                textInformationBody.text += $"{5 - i}...";
-                yield return new WaitForSeconds(1);
-            }
-            canvasImgRootObj.SetActive(false);
-            // switch to the next game mode
-            if (ManagerMapHandler.Instance)
-                ChangeGameState(GAMESTATE.MapBattle, ManagerMapHandler.Instance.currentPlayersTurn);
-            else
-                ChangeGameState(GAMESTATE.MapBattle, null);
+            yield return new WaitForSeconds(3);
+            canvasReloadButtonObj.SetActive(true);
+
+            
             
         }
     }
@@ -131,13 +123,9 @@ public class ManagerGameStateHandler : MonoBehaviour
                 textInformationHeader.text = $"<color=blue>TURN ORDER: {_brain.playerName}'s Turn";
                 textInformationBody.text = $"Press {_brain.myKeyMapPrefs.changeKeysMenu} To See The Controls. \n\n.<color=red>";
             }
-            yield return new WaitForSeconds(5);
-            for (int i = 0; i < 5; i++)
-            {
-                textInformationBody.text += $"{5 - i}...";
-                yield return new WaitForSeconds(1);
-            }
-            canvasImgRootObj.SetActive(false);
+            yield return new WaitForSeconds(3);
+            canvasReloadButtonObj.SetActive(true);
+
         }
     }
 
@@ -167,6 +155,36 @@ public class ManagerGameStateHandler : MonoBehaviour
             // ask if want to play again... if so maybe just reload the level if we're strapped for time
             canvasReloadButtonObj.SetActive(true);
         }
+    }
+
+    public void ContinueButton()
+    {
+        canvasReloadButtonObj.SetActive(false);
+        canvasImgRootObj.SetActive(false);
+
+
+        switch (gameActiveState)
+        {
+            case GAMESTATE.PreBattle:                
+                if (ManagerMapHandler.Instance) // switch to the next game mode
+                    ChangeGameState(GAMESTATE.MapBattle, ManagerMapHandler.Instance.currentPlayersTurn);
+                else
+                    ChangeGameState(GAMESTATE.MapBattle, null);
+                break;
+            case GAMESTATE.MapBattle:                
+                break;
+            case GAMESTATE.PostBattle:
+                ReloadCurrentScene();
+                break;
+            case GAMESTATE.None:
+                Debug.Log("WARNING: No active Game State Condition");
+                break;
+            default:
+                Debug.Log("ERROR: No active Game State Condition");
+                ChangeGameState(GAMESTATE.None, null);
+                break;
+        }
+        
     }
 
     public void ReloadCurrentScene()

@@ -36,3 +36,21 @@ public class UnitUI_HPReader : MonoBehaviour
 
 
 }
+
+
+
+// the custom data for keycode lists
+[System.Serializable]
+public class CustomColorIntegers
+{
+    [Range(0,1)]
+    public float healthMinium = 0;  
+    public Color healthBarColor = Color.green;
+
+    //public CustomColorIntegers(string _newPurpose, KeyCode _newKc)
+    //{
+    //    keyMapPurpose = _newPurpose;
+    //    keycodeHotkey = _newKc;
+    //}
+
+}//end of class for keycode lists

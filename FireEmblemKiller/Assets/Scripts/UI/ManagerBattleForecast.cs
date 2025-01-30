@@ -7,6 +7,7 @@ using TMPro;
 public class ManagerBattleForecast : MonoBehaviour
 {
     public static ManagerBattleForecast Instance { get; private set; }
+    public GameObject uiObj_Root;
     public TextMeshProUGUI attackingUnitName, defendingUnitName, attackText, speedText, defenseText, constitutionText;
     public Sprite attackerSprite, defenderSprite;
     public Image attackerImage, defenderImage;
@@ -23,13 +24,13 @@ public class ManagerBattleForecast : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ToggleBattleCanvas(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ToggleBattleCanvas(bool _turnOn)
     {
-        
+        if (uiObj_Root)
+            uiObj_Root.SetActive(_turnOn);
     }
 
     // UpdateBattleForecast() updates all UI assets associated with the Battle Forecast
@@ -40,6 +41,8 @@ public class ManagerBattleForecast : MonoBehaviour
     //                     the left of ride side of the battle forecast's panels.
     public void UpdateBattleForecast(UnitCapsule unit, int attkDamage, int defValue, bool isAttacker)
     {
+        ToggleBattleCanvas(true);
+
         // Update attacker information (left side of forecast)
         if (isAttacker)
         {

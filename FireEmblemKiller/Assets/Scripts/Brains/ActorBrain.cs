@@ -101,12 +101,12 @@ public class ActorBrain : MonoBehaviour
         if (ManagerMapHandler.Instance)
             ManagerMapHandler.Instance.ShowTraversableTiles(unitsImCommanding[unitSelected].tileImOn.transform, unitsImCommanding[unitSelected].thisUnitData.speed);
 
-        if (hasInitiatedBattleForecast)
+        if (hasInitiatedBattleForecast && ManagerBattleForecast.Instance)
         {
             ManagerBattleForecast.Instance.UpdateBattleForecast(unitsImCommanding[unitSelected],
                 unitsImCommanding[unitSelected].CalculateAttack(unitsImCommanding[unitSelected].thisUnitData), 0, true);
         }
-        else
+        else if (!hasInitiatedBattleForecast && ManagerUnitData.Instance)
         {
             Debug.Log("Trying to get: " + unitsImCommanding[unitSelected]);
             ManagerUnitData.Instance.UpdateUnitDataUI(unitsImCommanding[unitSelected]);
@@ -258,17 +258,19 @@ public class ActorBrain : MonoBehaviour
             int defenseValue = otherBrain.unitsImCommanding[otherBrain.unitSelected].CalculateDefense(otherBrain.unitsImCommanding[otherBrain.unitSelected].thisUnitData);
 
             // Activate and Update Battle Forecast
-            BattleForecastCanvas_go.SetActive(true);
-            UnitDataUICanvas_go.SetActive(false);
+            if (BattleForecastCanvas_go)
+                BattleForecastCanvas_go.SetActive(true);
+            if (UnitDataUICanvas_go)
+                UnitDataUICanvas_go.SetActive(false);
 
             //Update Battle Forecast
-            if (hasInitiatedBattleForecast == false)
+            if (hasInitiatedBattleForecast == false && ManagerBattleForecast.Instance)
             {
                 ManagerBattleForecast.Instance.UpdateBattleForecast(unitsImCommanding[unitSelected], attackDamage, defenseValue, true);
                 ManagerBattleForecast.Instance.UpdateBattleForecast(otherBrain.unitsImCommanding[otherBrain.unitSelected], attackDamage, defenseValue, false);
                 hasInitiatedBattleForecast = true;
             }
-            else if (hasInitiatedBattleForecast == true)
+            else if (hasInitiatedBattleForecast == true && ManagerBattleForecast.Instance)
             {
                 ManagerBattleForecast.Instance.UpdateBattleForecast(otherBrain.unitsImCommanding[otherBrain.unitSelected], attackDamage, defenseValue, false);
             }
