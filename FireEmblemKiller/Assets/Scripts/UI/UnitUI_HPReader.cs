@@ -11,13 +11,15 @@ public class UnitUI_HPReader : MonoBehaviour
     private float percetnHp = 0;
     private float delayTimeStamp, delayTimer = 2f;
 
-    private void LateUpdate() // ideally a scalable version with hundreds of units would only call this when a change to health is made
+    private void Update() // ideally a scalable version with hundreds of units would only call this when a change to health is made
     {
-        if (Time.time < delayTimeStamp + delayTimer)
-            return;
-
         UpdateUIHP();
-        delayTimeStamp = Time.time;
+
+        if (Time.time > delayTimeStamp + delayTimer)
+        {
+            //UpdateUIHP();
+            delayTimeStamp = Time.time;
+        }
 
     }
 
@@ -26,6 +28,7 @@ public class UnitUI_HPReader : MonoBehaviour
         if (myUnit)
         {
             percetnHp = myUnit.thisUnitData.healthPoints.x / myUnit.thisUnitData.healthPoints.y;
+
             if (percetnHp < 0) percetnHp = 0;
             if (percetnHp > myUnit.thisUnitData.healthPoints.y) percetnHp = 1;
         }
