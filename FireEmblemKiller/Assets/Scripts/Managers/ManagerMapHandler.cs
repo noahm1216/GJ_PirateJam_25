@@ -205,10 +205,21 @@ public class ManagerMapHandler : MonoBehaviour
 
     }
 
-    public void SendHPChangeToTarget(int _change, UnitCapsule _unitAffected)
+    // SendHPChangeToTarget() changes a given unit's HP value
+    // @Param _change - the change in HP
+    // @Param _unitAffected - the UnitCapsule class of the unit affected by the HP change
+    // returns bool - true if the unit is still alive, false if the unit has died
+    public bool SendHPChangeToTarget(int _change, UnitCapsule _unitAffected)
     {
         _unitAffected.thisUnitData.healthPoints.x -= _change;
-        Debug.Log($"{_unitAffected.thisUnitData.unitName} has taken {_change} damage. {_unitAffected.thisUnitData.unitName}'s New Health Total is: {_unitAffected.thisUnitData.healthPoints.x}");
+        Debug.Log($"{_unitAffected.thisUnitData.unitName} has taken {_change} damage. " +
+            $"{_unitAffected.thisUnitData.unitName}'s New Health Total is: {_unitAffected.thisUnitData.healthPoints.x}");
+
+        if (_unitAffected.thisUnitData.healthPoints.x <= 0) // Unit has perished
+        {
+            return false;
+        }
+        return true;
     }
 
 

@@ -299,7 +299,13 @@ public class ActorBrain : MonoBehaviour
                 if (damageInflicted < 0) damageInflicted = 0;
                 List<UnitCapsule> unitsAffected = new List<UnitCapsule>();
                 unitsAffected.Add(otherBrain.unitsImCommanding[otherBrain.unitSelected]);
-                ManagerMapHandler.Instance.SendHPChangeToTarget(damageInflicted, otherBrain.unitsImCommanding[otherBrain.unitSelected]);
+                bool isUnitStillAlive = ManagerMapHandler.Instance.SendHPChangeToTarget(damageInflicted, otherBrain.unitsImCommanding[otherBrain.unitSelected]);
+                if (!isUnitStillAlive)
+                {
+                    UnitCapsule deadUnit = otherBrain.unitsImCommanding[otherBrain.unitSelected];
+                    otherBrain.unitsImCommanding.Remove(deadUnit);
+                    Destroy(deadUnit.gameObject);
+                }
 
                 hasInitiatedBattleForecast = false;
                 BattleForecastCanvas_go.SetActive(false);
