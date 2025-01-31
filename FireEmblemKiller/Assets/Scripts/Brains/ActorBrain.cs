@@ -199,6 +199,49 @@ public class ActorBrain : MonoBehaviour
 
     }
 
+    public bool InflictAttackDamage()
+    {
+        // Get reference to other player's brain
+        ActorBrain otherBrain = GetOtherBrain();
+
+        if (otherBrain == null)
+        { Debug.Log("WARNING: No Other Brain To Get"); return false; }
+
+        // Check if the defending unit is within the attacker's range, and if so, Calculate Damage inflicted
+        if (CheckIsInRange(unitsImCommanding[unitSelected], otherBrain.unitsImCommanding[otherBrain.unitSelected]) == true)
+        {
+            // Calculate Damage Inflicted
+            int damageInflicted;
+            int attackDamage = unitsImCommanding[unitSelected].CalculateAttack(unitsImCommanding[unitSelected].thisUnitData);
+            int defenseValue = otherBrain.unitsImCommanding[otherBrain.unitSelected].CalculateDefense(otherBrain.unitsImCommanding[otherBrain.unitSelected].thisUnitData);
+            damageInflicted = attackDamage - defenseValue;
+            if (damageInflicted < 0) damageInflicted = 0;
+            List<UnitCapsule> unitsAffected = new List<UnitCapsule>();
+            unitsAffected.Add(otherBrain.unitsImCommanding[otherBrain.unitSelected]);
+            bool isUnitStillAlive = ManagerMapHandler.Instance.SendHPChangeToTarget(damageInflicted, otherBrain.unitsImCommanding[otherBrain.unitSelected]);
+            if (!isUnitStillAlive)
+            {
+                UnitCapsule deadUnit = otherBrain.unitsImCommanding[otherBrain.unitSelected];
+                otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
+                otherBrain.unitsImCommanding.Remove(deadUnit);
+                Destroy(deadUnit.gameObject);
+                if (otherBrain.unitsImCommanding.Count == 0)
+                {
+                    ManagerGameStateHandler.Instance.ChangeGameState(ManagerGameStateHandler.GAMESTATE.PostBattle, this);
+                }
+            }
+           
+            if (isUnitStillAlive) otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);            
+            ManagerUnitData.Instance.UpdateUnitDataUI(unitsImCommanding[unitSelected]);
+            return true;
+        }
+        else
+        {
+            Debug.Log("Out of Range!!!"); // TODO Display some sort of message on the UI to let the player know their unit is out of range
+            return false;
+        }
+    }
+
     
 
     public void CheckInputs()
@@ -297,46 +340,11 @@ public class ActorBrain : MonoBehaviour
         // Battle with selected units - inflict and receive damage
         if (Input.GetKeyUp(KeyCode.B) && hasInitiatedBattleForecast) // I Left This For You To Make A KeyCode Below Gabriel 
         {
-            // Get reference to other player's brain
-            ActorBrain otherBrain = GetOtherBrain();
-
-            if (otherBrain == null)
-            { Debug.Log("WARNING: No Other Brain To Get"); return; }
-
-            // Check if the defending unit is within the attacker's range, and if so, Calculate Damage inflicted
-            if (CheckIsInRange(unitsImCommanding[unitSelected], otherBrain.unitsImCommanding[otherBrain.unitSelected]) == true)
+            if (InflictAttackDamage())
             {
-                // Calculate Damage Inflicted
-                int damageInflicted;
-                int attackDamage = unitsImCommanding[unitSelected].CalculateAttack(unitsImCommanding[unitSelected].thisUnitData);
-                int defenseValue = otherBrain.unitsImCommanding[otherBrain.unitSelected].CalculateDefense(otherBrain.unitsImCommanding[otherBrain.unitSelected].thisUnitData);
-                damageInflicted = attackDamage - defenseValue;
-                if (damageInflicted < 0) damageInflicted = 0;
-                List<UnitCapsule> unitsAffected = new List<UnitCapsule>();
-                unitsAffected.Add(otherBrain.unitsImCommanding[otherBrain.unitSelected]);
-                bool isUnitStillAlive = ManagerMapHandler.Instance.SendHPChangeToTarget(damageInflicted, otherBrain.unitsImCommanding[otherBrain.unitSelected]);
-                if (!isUnitStillAlive)
-                {
-                    UnitCapsule deadUnit = otherBrain.unitsImCommanding[otherBrain.unitSelected];
-                    otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
-                    otherBrain.unitsImCommanding.Remove(deadUnit);
-                    Destroy(deadUnit.gameObject);
-                    if (otherBrain.unitsImCommanding.Count == 0)
-                    {
-                        ManagerGameStateHandler.Instance.ChangeGameState(ManagerGameStateHandler.GAMESTATE.PostBattle, this);
-                    }
-                }
-
                 hasInitiatedBattleForecast = false;
                 BattleForecastCanvas_go.SetActive(false);
-                if (isUnitStillAlive) otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
                 UnitDataUICanvas_go.SetActive(true);
-                ManagerUnitData.Instance.UpdateUnitDataUI(unitsImCommanding[unitSelected]);
-            }
-
-            else
-            {
-                Debug.Log("Out of Range!!!"); // TODO Display some sort of message on the UI to let the player know their unit is out of range
             }
         }
 
