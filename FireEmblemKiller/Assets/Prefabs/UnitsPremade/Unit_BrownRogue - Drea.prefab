@@ -143,10 +143,10 @@ MonoBehaviour:
     level: 0
     experience: {x: 0, y: 0}
     healthPoints: {x: 10, y: 10}
-    speed: 7
+    speed: 5
     range: 1
     thisUnitsStats:
-      strength: 7
+      strength: 4
       dexterity: 0
       constitution: 0
       wisdom: 0

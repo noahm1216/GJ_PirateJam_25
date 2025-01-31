@@ -60,9 +60,9 @@ MonoBehaviour:
     experience: {x: 0, y: 0}
     healthPoints: {x: 10, y: 10}
     speed: 4
-    range: 2
+    range: 3
     thisUnitsStats:
-      strength: 1
+      strength: 5
       dexterity: 0
       constitution: 0
       wisdom: 0

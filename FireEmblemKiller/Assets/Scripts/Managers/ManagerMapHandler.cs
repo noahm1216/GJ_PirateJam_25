@@ -217,7 +217,8 @@ public class ManagerMapHandler : MonoBehaviour
 
         foreach (MapTileData tile in gridTilesGenerated)
         {
-            float dist = Vector2.Distance(tile.transform.position, _startPoint.position);
+            float dist = Vector3.Distance(tile.transform.position, _startPoint.position);
+            print($"DIST = {dist}");
             tile.ChangeInRange(tile.TileIsFree() && dist <= _acceptableDistance);
         }
 
