@@ -69,10 +69,10 @@ public class ActorBrain : MonoBehaviour
     {
         if (ManagerMapHandler.Instance)
             ManagerMapHandler.Instance.ResetTraversableTileVisuals();
-
+        Debug.Log($"CycleMyUnits() has been called. Current unitSelected indexer is: {unitSelected}");
         if (unitsImCommanding.Count == 0)
         { Debug.Log("Cant Cycle Units With '0' Units In 'Units Im Commanding'"); return; }
-        unitsImCommanding[unitSelected].ChangeUnitSelection(false);
+        if (unitSelected < unitsImCommanding.Count) unitsImCommanding[unitSelected].ChangeUnitSelection(false);
 
         unitSelected += 1;
         if (unitSelected >= unitsImCommanding.Count)
@@ -318,6 +318,7 @@ public class ActorBrain : MonoBehaviour
                 if (!isUnitStillAlive)
                 {
                     UnitCapsule deadUnit = otherBrain.unitsImCommanding[otherBrain.unitSelected];
+                    otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
                     otherBrain.unitsImCommanding.Remove(deadUnit);
                     Destroy(deadUnit.gameObject);
                     if (otherBrain.unitsImCommanding.Count == 0)
@@ -328,7 +329,7 @@ public class ActorBrain : MonoBehaviour
 
                 hasInitiatedBattleForecast = false;
                 BattleForecastCanvas_go.SetActive(false);
-                otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
+                if (isUnitStillAlive) otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
                 UnitDataUICanvas_go.SetActive(true);
                 ManagerUnitData.Instance.UpdateUnitDataUI(unitsImCommanding[unitSelected]);
             }
