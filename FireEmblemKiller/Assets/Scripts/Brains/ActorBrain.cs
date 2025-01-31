@@ -300,6 +300,9 @@ public class ActorBrain : MonoBehaviour
             // Get reference to other player's brain
             ActorBrain otherBrain = GetOtherBrain();
 
+            if (otherBrain == null)
+            { Debug.Log("WARNING: No Other Brain To Get"); return; }
+
             // Check if the defending unit is within the attacker's range, and if so, Calculate Damage inflicted
             if (CheckIsInRange(unitsImCommanding[unitSelected], otherBrain.unitsImCommanding[otherBrain.unitSelected]) == true)
             {

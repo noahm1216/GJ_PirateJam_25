@@ -95,7 +95,7 @@ public class ManagerGameStateHandler : MonoBehaviour
             canvasImgRootObj.SetActive(true);
             textGameState.text = gameActiveState.ToString();
             // Introduction to the challenge
-            textInformationHeader.text = "<color=blue>OBJECTIVE: Leave No Enemy Units Alive.";
+            textInformationHeader.text = "OBJECTIVE: <color=blue>Leave No Enemy Units Alive.";
             KeyCode controlKey = KeyCode.K;
             textInformationBody.text = $"Use your units to: Move, Attack, and Talk your way to victory. Press {controlKey} to see a list of controls when its your turn.\n\n (also thank you for trying our demo prototype!) \n\n.<color=red>";
             yield return new WaitForSeconds(3);
@@ -115,12 +115,12 @@ public class ManagerGameStateHandler : MonoBehaviour
             // say who is going first
             if (!_brain)
             {
-                textInformationHeader.text = "<color=blue>TURN ORDER: Blue Player's Turn";
+                textInformationHeader.text = "TURN ORDER: <color=blue>Blue Player's Turn";
                 textInformationBody.text = "Press K To See The Controls. \n\n.<color=red>";
             }
             else
             {
-                textInformationHeader.text = $"<color=blue>TURN ORDER: {_brain.playerName}'s Turn";
+                textInformationHeader.text = $"TURN ORDER: <color=blue>{_brain.playerName}'s Turn";
                 textInformationBody.text = $"Press {_brain.myKeyMapPrefs.changeKeysMenu} To See The Controls. \n\n.<color=red>";
             }
             yield return new WaitForSeconds(3);
@@ -138,7 +138,7 @@ public class ManagerGameStateHandler : MonoBehaviour
             // say who won
             if (!_brain)
             {
-                textInformationHeader.text = "<color=blue>END GAME: No Players Survived";
+                textInformationHeader.text = "END GAME: <color=blue>No Players Survived";
                 textInformationBody.text = "Missing Information Leads Us To Believe NO WINNER was left... Sometimes this is the reality of war, and a tragedy for everyone involved. The echoes of this battle will be felt across the universe. \n\n (thanks for trying our game/demo) \n\n.<color=red>";
             }
             else

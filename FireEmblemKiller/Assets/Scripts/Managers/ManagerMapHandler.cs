@@ -11,6 +11,8 @@ public class ManagerMapHandler : MonoBehaviour
 {
     public static ManagerMapHandler Instance { get; private set; }
 
+    public bool useNewSpawning = false;
+
     public Transform gridTilePrefab; // these are 1x1 meter units
     private Transform gridTileParent; // this is generated at runtime to hold tiles
     public List<MapTileData> gridTilesGenerated = new List<MapTileData>();
@@ -121,61 +123,85 @@ public class ManagerMapHandler : MonoBehaviour
 
 
         #region Attemping More Interesting Spawn
-        //int tilesDividedEvenlyByPlayer = sampleBrainPlayers.Count / gridTilesGenerated.Count; // if 20 tiles, 2 brains... 10-tiles per brain
-        //int tilesChecked = 0; // tracks tiles as we move between players (not optimized but easier for my brain right now)
-        //for (int i = 0; i < sampleBrainPlayers.Count; i++)
-        //{
-        //    // get our possible tiles
-        //    MapTileData[] freeTileInRange = new MapTileData[tilesDividedEvenlyByPlayer];
-        //    for(int t = 0; t < tilesDividedEvenlyByPlayer; t++)
-        //        freeTileInRange[t] = gridTilesGenerated[tilesChecked]; // adds our possible tiles to the array
-
-        //    int availableTiles = tilesDividedEvenlyByPlayer;
-        //    foreach (UnitCapsule unit in sampleBrainPlayers[i].unitsImCommanding) // placing units || TODO - figure out a pattern or sample way to design basic spawns that are more interesting
-        //    {
-        //        unit.ChangeUnitSelection(false); // deselect all units
-        //        // place unit on tile if free
-        //        foreach (MapTileData tile in freeTileInRange)
-        //        {
-        //            tilesChecked++;
-        //            if (tile.TileIsFree())
-        //            {
-        //                //print($"Tile: {tile.transform.name} - is Free For: {unit.thisUnitData.unitName}");
-        //                unit.transform.position = tile.transform.position;
-        //                tile.unitOnThisTile = unit;
-        //                unit.tileImOn = tile;
-        //                break;
-        //            }
-        //        }
-
-        //    }
-
-        //}
-        #endregion Attemping More Interesting Spawn
-
-        // WE WILL REPLACE THIS SOON
-        foreach (UnitCapsule unit in spawnedUnits) // placing units || TODO - figure out a pattern or sample way to design basic spawns that are more interesting
+        if (useNewSpawning)
         {
-
-            // change the order depending on how many brains we have
-            // we have 3 brians
-            // divide up how many tiles we give each brain ( evenly into sections)
-            // for each section of tiles spawn units
-
-            foreach (MapTileData tile in gridTilesGenerated)
+            print("ATTEMPTING ADVANCED SPAWN - 0");
+            int tilesDividedEvenlyByPlayer = gridTilesGenerated.Count / sampleBrainPlayers.Count; // if 100 tiles, 2 brains... 50-tiles per brain        
+            Vector2Int tilesToCheck = new Vector2Int(0, tilesDividedEvenlyByPlayer - 1);
+            for (int i = 0; i < sampleBrainPlayers.Count; i++)
             {
-                if (tile.TileIsFree())
+                print($"ATTEMPTING ADVANCED SPAWN - 1 || Brain: {sampleBrainPlayers[i].playerName}");
+                // get our possible tiles for this Brain
+                MapTileData[] freeTileInRange = new MapTileData[tilesDividedEvenlyByPlayer];
+                for (int t = tilesToCheck.x; t < tilesToCheck.y; t++)
+                { if (t >= gridTilesGenerated.Count - 1 || t >= freeTileInRange.Length - 1) break; freeTileInRange[t] = gridTilesGenerated[t]; }// adds our possible tiles to the array
+
+                int availableTiles = tilesDividedEvenlyByPlayer;
+                int placedUnits = 0;
+
+                foreach (MapTileData tile in freeTileInRange)
                 {
-                    //print($"Tile: {tile.transform.name} - is Free For: {unit.thisUnitData.unitName}");
-                    unit.transform.position = tile.transform.position;
-                    tile.unitOnThisTile = unit;
-                    unit.tileImOn = tile;
-                    break;
+                    print("ATTEMPTING ADVANCED SPAWN - 2");
+                    if (!tile || !tile.TileIsFree())
+                    { availableTiles--; continue; }
+                    print($"ATTEMPTING ADVANCED SPAWN - 3 || Tile: {tile.transform.name}");
+                    foreach (UnitCapsule unit in sampleBrainPlayers[i].unitsImCommanding) // placing units || TODO - figure out a pattern or sample way to design basic spawns that are more interesting
+                    {
+                        print("ATTEMPTING ADVANCED SPAWN - 4");
+                        if (!unit || unit.tileImOn) // skip if null or unit has a tile already
+                        { continue; }
+
+                        unit.ChangeUnitSelection(false); // deselect all units                      
+
+                        print("ATTEMPTING ADVANCED SPAWN - 5");
+                        if (tile.TileIsFree())
+                        {
+                            print($"ATTEMPTING ADVANCED SPAWN - 6 || {tile.transform.name} - is Free For: {unit.thisUnitData.unitName} ");
+                            //print($"Tile: {tile.transform.name} - is Free For: {unit.thisUnitData.unitName}");
+                            unit.transform.position = tile.transform.position;
+                            tile.unitOnThisTile = unit;
+                            unit.tileImOn = tile;
+                            placedUnits++;
+                            availableTiles--;
+                            break;
+                        }
+                    }
+                    if (placedUnits >= availableTiles || placedUnits >= sampleBrainPlayers[i].unitsImCommanding.Count)
+                        break;
+                }
+
+                print($"ATTEMPTING ADVANCED SPAWN - 7 || Tiles To Check Was: {tilesToCheck.x},{tilesToCheck.y} - IS NOW: {tilesToCheck.x + tilesDividedEvenlyByPlayer},{tilesToCheck.y + tilesDividedEvenlyByPlayer}");
+                tilesToCheck += new Vector2Int(tilesDividedEvenlyByPlayer, tilesDividedEvenlyByPlayer); // bumps up the tiles to the next set
+            }
+            print("ATTEMPTING ADVANCED SPAWN - 8");
+        }
+        #endregion Attemping More Interesting Spawn
+        else
+        {
+            // WE WILL REPLACE THIS SOON
+            foreach (UnitCapsule unit in spawnedUnits) // placing units || TODO - figure out a pattern or sample way to design basic spawns that are more interesting
+            {
+                unit.ChangeUnitSelection(false); // deselect all units
+
+                // change the order depending on how many brains we have
+                // we have 3 brians
+                // divide up how many tiles we give each brain ( evenly into sections)
+                // for each section of tiles spawn units
+
+                foreach (MapTileData tile in gridTilesGenerated)
+                {
+                    if (tile.TileIsFree())
+                    {
+                        //print($"Tile: {tile.transform.name} - is Free For: {unit.thisUnitData.unitName}");
+                        unit.transform.position = tile.transform.position;
+                        tile.unitOnThisTile = unit;
+                        unit.tileImOn = tile;
+                        break;
+                    }
                 }
             }
+            // END OF WE WILL REPLACE THIS SOON
         }
-        //END OF WE WILL REPLACE THIS SOON
-
         NextPlayersTurn(); // assign whose turn it is
     }
 
