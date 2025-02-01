@@ -135,6 +135,7 @@ MonoBehaviour:
   unitActionsFinished: 0
   selectedIndicator: {fileID: 4859304827513639126}
   tileImOn: {fileID: 0}
+  animCon: {fileID: 6383098372927363316}
   thisUnitData:
     unitName: Drea
     unitColor: {r: 0.9960785, g: 0.70980394, b: 0.31764707, a: 1}
@@ -152,6 +153,21 @@ MonoBehaviour:
       wisdom: 0
       charisma: 0
     thisUnitsEquipment: []
+  EvOnSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnDeselect:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnHitByAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &4113139030563700376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -357,6 +373,12 @@ PrefabInstance:
 --- !u!4 &1313548050199158254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9075937994485471484, guid: 79c3d2f113aa24d40ad354bb5dbfa390,
+    type: 3}
+  m_PrefabInstance: {fileID: 8056549926349309202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6383098372927363316 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3989009899076296166, guid: 79c3d2f113aa24d40ad354bb5dbfa390,
     type: 3}
   m_PrefabInstance: {fileID: 8056549926349309202}
   m_PrefabAsset: {fileID: 0}

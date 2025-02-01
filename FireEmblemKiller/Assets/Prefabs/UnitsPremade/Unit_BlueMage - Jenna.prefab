@@ -51,6 +51,7 @@ MonoBehaviour:
   unitActionsFinished: 0
   selectedIndicator: {fileID: 4453411722120374487}
   tileImOn: {fileID: 0}
+  animCon: {fileID: 1797208157289337845}
   thisUnitData:
     unitName: Jenna
     unitColor: {r: 0, g: 0.18823531, b: 1, a: 1}
@@ -68,6 +69,21 @@ MonoBehaviour:
       wisdom: 0
       charisma: 0
     thisUnitsEquipment: []
+  EvOnSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnDeselect:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnHitByAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4453411722120374487
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +236,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d373b28bdc8c96d4f9e6d9bb3fc8134e, type: 3}
+--- !u!95 &1797208157289337845 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1418381886175433005, guid: d373b28bdc8c96d4f9e6d9bb3fc8134e,
+    type: 3}
+  m_PrefabInstance: {fileID: 819634806449996504}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7341833609075664717 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7979396981951112597, guid: d373b28bdc8c96d4f9e6d9bb3fc8134e,

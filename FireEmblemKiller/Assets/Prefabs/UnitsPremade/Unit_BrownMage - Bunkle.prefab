@@ -135,6 +135,7 @@ MonoBehaviour:
   unitActionsFinished: 0
   selectedIndicator: {fileID: 4859304827513639126}
   tileImOn: {fileID: 0}
+  animCon: {fileID: 852722050772856370}
   thisUnitData:
     unitName: Bunkle
     unitColor: {r: 0.44705886, g: 0.23529413, b: 0, a: 1}
@@ -152,6 +153,21 @@ MonoBehaviour:
       wisdom: 0
       charisma: 0
     thisUnitsEquipment: []
+  EvOnSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnDeselect:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnHitByAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2940569414164524464
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -352,6 +368,12 @@ PrefabInstance:
 --- !u!4 &21901400788274057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7979396981951112597, guid: a63c98cc6760c8f4fa8a12cec3fc033e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7994254868100722204}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &852722050772856370 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7288009872357048366, guid: a63c98cc6760c8f4fa8a12cec3fc033e,
     type: 3}
   m_PrefabInstance: {fileID: 7994254868100722204}
   m_PrefabAsset: {fileID: 0}

@@ -51,6 +51,7 @@ MonoBehaviour:
   unitActionsFinished: 0
   selectedIndicator: {fileID: 4453411722120374487}
   tileImOn: {fileID: 0}
+  animCon: {fileID: 5721282477405516214}
   thisUnitData:
     unitName: Cera
     unitColor: {r: 0.18431373, g: 0.43137258, b: 0.4901961, a: 1}
@@ -68,6 +69,21 @@ MonoBehaviour:
       wisdom: 0
       charisma: 0
     thisUnitsEquipment: []
+  EvOnSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnDeselect:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnHitByAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  EvOnDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4453411722120374487
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +365,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 394fb995a6b275f468ca3076b03d20a5, type: 3}
+--- !u!95 &5721282477405516214 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6999590033453218200, guid: 394fb995a6b275f468ca3076b03d20a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 3334244914052188206}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6030790012952170706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9075937994485471484, guid: 394fb995a6b275f468ca3076b03d20a5,

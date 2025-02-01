@@ -206,6 +206,7 @@ MonoBehaviour:
     changeKeysMenu: 107
     unitPlanAttack: 97
     calculateAttack: 99
+    unitConfirmAttack: 98
   myUnitPrefabs:
   - {fileID: 8013205235207748160, guid: 3de397e938d5bc24886e6899b8dd77a7, type: 3}
   - {fileID: 8013205235207748160, guid: 31271de32111de54596c2daea0f0c245, type: 3}
@@ -338,6 +339,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas_BattleForecast
+      objectReference: {fileID: 0}
+    - target: {fileID: 210023581980738907, guid: cf5e9370ac46d462a8a67fbc84f1d0e2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7108163406916776445, guid: cf5e9370ac46d462a8a67fbc84f1d0e2,
         type: 3}
@@ -610,6 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f86ec84a0d8ef254d873a7b3f18bfa9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useNewSpawning: 0
   gridTilePrefab: {fileID: 2566936301461920014, guid: b5f3233a58f9b6b4ba2818677290e969,
     type: 3}
   gridTilesGenerated: []
@@ -1059,6 +1066,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas_UnitData
+      objectReference: {fileID: 0}
+    - target: {fileID: 8533183168569318560, guid: c0387ac1fb1034c4aa490b2614ca37ac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1511,6 +1523,7 @@ MonoBehaviour:
     changeKeysMenu: 107
     unitPlanAttack: 97
     calculateAttack: 99
+    unitConfirmAttack: 98
   myUnitPrefabs:
   - {fileID: 2547011973050019379, guid: 9a881096ce3ade94cbce0c13cc72171b, type: 3}
   - {fileID: 2547011973050019379, guid: 24f89c7df852506468fa0f35fe5d18a6, type: 3}
@@ -1609,6 +1622,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas_KeyInputs
+      objectReference: {fileID: 0}
+    - target: {fileID: 769926088064110642, guid: d4dc111ad502ec04083f365b41013fcd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2012891693828825847, guid: d4dc111ad502ec04083f365b41013fcd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -13.790009
       objectReference: {fileID: 0}
     - target: {fileID: 4784904850522913245, guid: d4dc111ad502ec04083f365b41013fcd,
         type: 3}
@@ -1828,6 +1851,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas_UnitConversation
       objectReference: {fileID: 0}
+    - target: {fileID: 7546164694690006773, guid: e47412a15a5835c42b279a519e7a6394,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1855,6 +1883,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas_GameState
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399971810947377212, guid: 0e1778ba177ee0742bb018d21af4c8a9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4586370043211307937, guid: 0e1778ba177ee0742bb018d21af4c8a9,
         type: 3}
@@ -2001,12 +2034,12 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 330585546}
+  - {fileID: 225512647}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 379875425}
   - {fileID: 14480374}
   - {fileID: 1691305828}
-  - {fileID: 225512647}
   - {fileID: 8735975597226218230}
   - {fileID: 4754809350564483349}
   - {fileID: 4574378324571792417}

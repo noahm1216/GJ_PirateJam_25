@@ -1,16 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class UnitCapsule : MonoBehaviour
 {
-    // nothing yet but soon...
-
     public bool unitIsSelected;
     public bool unitActionsFinished;
     public GameObject selectedIndicator;
     public MapTileData tileImOn;
+    public Animator animCon;
     public UnitData thisUnitData; // this single unit data (might want to have a different script)
+
+
+    public UnityEvent EvOnSelect = new UnityEvent();
+    public UnityEvent EvOnDeselect = new UnityEvent();
+    public UnityEvent EvOnAttack = new UnityEvent();
+    public UnityEvent EvOnHitByAttack = new UnityEvent();
+    public UnityEvent EvOnDeath = new UnityEvent();
 
     // update / upgrade stats
     // switching classes
@@ -24,6 +31,11 @@ public class UnitCapsule : MonoBehaviour
 
         if (selectedIndicator)
             selectedIndicator.SetActive(unitIsSelected);
+
+        if (unitIsSelected)
+            EvOnSelect.Invoke();
+        else
+            EvOnDeselect.Invoke();
     }
 
     public int CalculateAttack(UnitData unit)
@@ -59,6 +71,35 @@ public class UnitCapsule : MonoBehaviour
         }
 
         return defense;
+    }
+
+    private void ResetAllAnimations()
+    {
+        if(!animCon)
+        { Debug.Log($"WARNING: No animation controllers hooked up to this character: {thisUnitData.unitName}"); return; }
+
+        animCon.ResetTrigger("Attack");
+        animCon.ResetTrigger("CounterAttack");
+    }
+
+    public void CallEvent_Attacking()
+    {
+        ResetAllAnimations();
+        animCon.SetTrigger("Attack");
+        EvOnAttack.Invoke();
+    }
+
+    public void CallEvent_Hit()
+    {
+        ResetAllAnimations();
+        animCon.SetTrigger("CounterAttack");
+        EvOnHitByAttack.Invoke();
+    }
+
+    public void CallEvent_Death()
+    {
+        ResetAllAnimations();
+        EvOnDeath.Invoke();
     }
 } // end of UnitCapsule Base Class
 
