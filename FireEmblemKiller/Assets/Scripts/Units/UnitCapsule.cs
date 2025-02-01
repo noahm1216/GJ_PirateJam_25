@@ -82,10 +82,13 @@ public class UnitCapsule : MonoBehaviour
         animCon.ResetTrigger("CounterAttack");
     }
 
-    public void CallEvent_Attacking()
+    public void CallEvent_Attacking(bool _isCounter)
     {
         ResetAllAnimations();
-        animCon.SetTrigger("Attack");
+        if (_isCounter)
+            animCon.SetTrigger("CounterAttack");
+        else
+            animCon.SetTrigger("Attack");
         EvOnAttack.Invoke();
     }
 

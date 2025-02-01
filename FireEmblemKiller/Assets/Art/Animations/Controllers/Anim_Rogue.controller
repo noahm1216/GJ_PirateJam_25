@@ -58,7 +58,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: CounterAttack
+    m_ConditionEvent: Attack
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6268594851081664230}
@@ -219,13 +219,13 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -6268594851081664230}
-    m_Position: {x: 390, y: -40, z: 0}
+    m_Position: {x: 160, y: -40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6296993249455305064}
     m_Position: {x: 280, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5699246254656845391}
-    m_Position: {x: 160, y: -40, z: 0}
+    m_Position: {x: 390, y: -40, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -1060195931232217356}

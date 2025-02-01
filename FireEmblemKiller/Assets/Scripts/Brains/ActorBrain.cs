@@ -204,9 +204,10 @@ public class ActorBrain : MonoBehaviour
     // @Param UnitCapsule u - the unit that is being killed
     public void KillUnit(ActorBrain ab, UnitCapsule u)
     {
+        u.CallEvent_Death();
         u.ChangeUnitSelection(false);
         ab.unitsImCommanding.Remove(u);
-        Destroy(u.gameObject);
+        Destroy(u.gameObject,2);
     }
 
     // DealDamage() takes two Units, the first being the attacker and the second the defender, respectively
@@ -235,7 +236,7 @@ public class ActorBrain : MonoBehaviour
         // Check if the defending unit is within the attacker's range, and if so, Calculate Damage inflicted
         if (CheckIsInRange(unitsImCommanding[unitSelected], otherBrain.unitsImCommanding[otherBrain.unitSelected]))
         {
-            // TODO PLAY ATTACKING ANIMATION
+            unitsImCommanding[unitSelected].CallEvent_Attacking(false);// PLAY ATTACKING ANIMATION
 
             // Calculate Damage Inflicted
             bool isUnitStillAlive = DealDamage(unitsImCommanding[unitSelected], otherBrain.unitsImCommanding[otherBrain.unitSelected]);
@@ -248,7 +249,7 @@ public class ActorBrain : MonoBehaviour
             // If the defending unit is still alive, and the attacker is within their range, we initiate a counter-attack by the defender
             else if (isUnitStillAlive && CheckIsInRange(otherBrain.unitsImCommanding[otherBrain.unitSelected], unitsImCommanding[unitSelected]))
             {
-                // TODO PLAY COUNTER-ATTACKING ANIMATION
+                otherBrain.unitsImCommanding[otherBrain.unitSelected].CallEvent_Attacking(true);// PLAY COUNTER-ATTACKING ANIMATION                
 
                 // Initiate Counter-Attack
                 bool isFirstUnitStillAlive = DealDamage(otherBrain.unitsImCommanding[otherBrain.unitSelected], unitsImCommanding[unitSelected]);
@@ -265,7 +266,11 @@ public class ActorBrain : MonoBehaviour
                 otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
             }
             // If the defending unit is still alive, but out of range for a counter-attack, the defender must still be deselected
-            else if (isUnitStillAlive && !CheckIsInRange(otherBrain.unitsImCommanding[otherBrain.unitSelected], unitsImCommanding[unitSelected])) otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
+            else if (isUnitStillAlive && !CheckIsInRange(otherBrain.unitsImCommanding[otherBrain.unitSelected], unitsImCommanding[unitSelected]))
+            {
+                otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
+                otherBrain.unitsImCommanding[otherBrain.unitSelected].CallEvent_Hit(); // PLAY HIT ANIMATION
+            }
 
             ManagerUnitData.Instance.UpdateUnitDataUI(unitsImCommanding[unitSelected]);
             return true;
