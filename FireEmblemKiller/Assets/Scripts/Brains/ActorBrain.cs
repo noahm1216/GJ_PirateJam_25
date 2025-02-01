@@ -199,6 +199,16 @@ public class ActorBrain : MonoBehaviour
 
     }
 
+    // KillUnit() kills a unit, removing their informating from the game
+    // @Param ActorBrain ab - the actor brain that the unit belongs to
+    // @Param UnitCapsule u - the unit that is being killed
+    public void KillUnit(ActorBrain ab, UnitCapsule u)
+    {
+        u.ChangeUnitSelection(false);
+        ab.unitsImCommanding.Remove(u);
+        Destroy(u.gameObject);
+    }
+
     // DealDamage() takes two Units, the first being the attacker and the second the defender, respectively
     // @Param UnitCapsule a - the attacking unit
     // @Param UnitCapsule d - the defending unit
@@ -232,10 +242,7 @@ public class ActorBrain : MonoBehaviour
 
             if (!isUnitStillAlive) // If the defending unit perished, we remove their information from their ActorBrain
             {
-                UnitCapsule deadUnit = otherBrain.unitsImCommanding[otherBrain.unitSelected];
-                otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
-                otherBrain.unitsImCommanding.Remove(deadUnit);
-                Destroy(deadUnit.gameObject);
+                KillUnit(otherBrain, otherBrain.unitsImCommanding[otherBrain.unitSelected]);
                 if (otherBrain.unitsImCommanding.Count == 0) ManagerGameStateHandler.Instance.ChangeGameState(ManagerGameStateHandler.GAMESTATE.PostBattle, this);
             }
             // If the defending unit is still alive, and the attacker is within their range, we initiate a counter-attack by the defender
@@ -250,10 +257,7 @@ public class ActorBrain : MonoBehaviour
 
                 if (!isFirstUnitStillAlive) // If the unit that originally initiated combat died from a counter-attack:
                 {
-                    UnitCapsule deadUnit = unitsImCommanding[unitSelected];
-                    unitsImCommanding[unitSelected].ChangeUnitSelection(false);
-                    unitsImCommanding.Remove(deadUnit);
-                    Destroy(deadUnit.gameObject);
+                    KillUnit(this, unitsImCommanding[unitSelected]);
                     if (unitsImCommanding.Count == 0) ManagerGameStateHandler.Instance.ChangeGameState(ManagerGameStateHandler.GAMESTATE.PostBattle, otherBrain);
                     otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
                     CycleMyUnits();
