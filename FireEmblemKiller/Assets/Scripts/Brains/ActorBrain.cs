@@ -199,7 +199,22 @@ public class ActorBrain : MonoBehaviour
 
     }
 
-    public bool InflictAttackDamage()
+    // DealDamage() takes two Units, the first being the attacker and the second the defender, respectively
+    // @Param UnitCapsule a - the attacking unit
+    // @Param UnitCapsule d - the defending unit
+    // Returns a boolean that is true if the defending unit is still alive, false if the defending unit has perished
+    public bool DealDamage(UnitCapsule a, UnitCapsule d)
+    {
+        // Calculate damage inflicted
+        int attackDamage = a.CalculateAttack(a.thisUnitData);
+        int defenseValue = d.CalculateDefense(d.thisUnitData);
+        int damageDealt = attackDamage - defenseValue;
+        if (damageDealt < 0) damageDealt = 0;
+        return ManagerMapHandler.Instance.SendHPChangeToTarget(damageDealt, d);
+    }
+
+    // Returns a boolean that is true if the combat was successful, false if not
+    public bool InitiateCombat()
     {
         // Get reference to other player's brain
         ActorBrain otherBrain = GetOtherBrain();
@@ -208,30 +223,46 @@ public class ActorBrain : MonoBehaviour
         { Debug.Log("WARNING: No Other Brain To Get"); return false; }
 
         // Check if the defending unit is within the attacker's range, and if so, Calculate Damage inflicted
-        if (CheckIsInRange(unitsImCommanding[unitSelected], otherBrain.unitsImCommanding[otherBrain.unitSelected]) == true)
+        if (CheckIsInRange(unitsImCommanding[unitSelected], otherBrain.unitsImCommanding[otherBrain.unitSelected]))
         {
+            // TODO PLAY ATTACKING ANIMATION
+
             // Calculate Damage Inflicted
-            int damageInflicted;
-            int attackDamage = unitsImCommanding[unitSelected].CalculateAttack(unitsImCommanding[unitSelected].thisUnitData);
-            int defenseValue = otherBrain.unitsImCommanding[otherBrain.unitSelected].CalculateDefense(otherBrain.unitsImCommanding[otherBrain.unitSelected].thisUnitData);
-            damageInflicted = attackDamage - defenseValue;
-            if (damageInflicted < 0) damageInflicted = 0;
-            List<UnitCapsule> unitsAffected = new List<UnitCapsule>();
-            unitsAffected.Add(otherBrain.unitsImCommanding[otherBrain.unitSelected]);
-            bool isUnitStillAlive = ManagerMapHandler.Instance.SendHPChangeToTarget(damageInflicted, otherBrain.unitsImCommanding[otherBrain.unitSelected]);
-            if (!isUnitStillAlive)
+            bool isUnitStillAlive = DealDamage(unitsImCommanding[unitSelected], otherBrain.unitsImCommanding[otherBrain.unitSelected]);
+
+            if (!isUnitStillAlive) // If the defending unit perished, we remove their information from their ActorBrain
             {
                 UnitCapsule deadUnit = otherBrain.unitsImCommanding[otherBrain.unitSelected];
                 otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
                 otherBrain.unitsImCommanding.Remove(deadUnit);
                 Destroy(deadUnit.gameObject);
-                if (otherBrain.unitsImCommanding.Count == 0)
-                {
-                    ManagerGameStateHandler.Instance.ChangeGameState(ManagerGameStateHandler.GAMESTATE.PostBattle, this);
-                }
+                if (otherBrain.unitsImCommanding.Count == 0) ManagerGameStateHandler.Instance.ChangeGameState(ManagerGameStateHandler.GAMESTATE.PostBattle, this);
             }
-           
-            if (isUnitStillAlive) otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);            
+            // If the defending unit is still alive, and the attacker is within their range, we initiate a counter-attack by the defender
+            else if (isUnitStillAlive && CheckIsInRange(otherBrain.unitsImCommanding[otherBrain.unitSelected], unitsImCommanding[unitSelected]))
+            {
+                // TODO PLAY COUNTER-ATTACKING ANIMATION
+
+                // Initiate Counter-Attack
+                bool isFirstUnitStillAlive = DealDamage(otherBrain.unitsImCommanding[otherBrain.unitSelected], unitsImCommanding[unitSelected]);
+                //List<UnitCapsule> unitsAffected = new List<UnitCapsule>(); <-- might be used for later for aoe moves
+                //unitsAffected.Add(otherBrain.unitsImCommanding[otherBrain.unitSelected]); <-- might be used for later for aoe moves
+
+                if (!isFirstUnitStillAlive) // If the unit that originally initiated combat died from a counter-attack:
+                {
+                    UnitCapsule deadUnit = unitsImCommanding[unitSelected];
+                    unitsImCommanding[unitSelected].ChangeUnitSelection(false);
+                    unitsImCommanding.Remove(deadUnit);
+                    Destroy(deadUnit.gameObject);
+                    if (unitsImCommanding.Count == 0) ManagerGameStateHandler.Instance.ChangeGameState(ManagerGameStateHandler.GAMESTATE.PostBattle, otherBrain);
+                    otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
+                    CycleMyUnits();
+                }
+                otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
+            }
+            // If the defending unit is still alive, but out of range for a counter-attack, the defender must still be deselected
+            else if (isUnitStillAlive && !CheckIsInRange(otherBrain.unitsImCommanding[otherBrain.unitSelected], unitsImCommanding[unitSelected])) otherBrain.unitsImCommanding[otherBrain.unitSelected].ChangeUnitSelection(false);
+
             ManagerUnitData.Instance.UpdateUnitDataUI(unitsImCommanding[unitSelected]);
             return true;
         }
@@ -340,7 +371,7 @@ public class ActorBrain : MonoBehaviour
         // Battle with selected units - inflict and receive damage
         if (Input.GetKeyUp(KeyCode.B) && hasInitiatedBattleForecast) // I Left This For You To Make A KeyCode Below Gabriel 
         {
-            if (InflictAttackDamage())
+            if (InitiateCombat())
             {
                 hasInitiatedBattleForecast = false;
                 BattleForecastCanvas_go.SetActive(false);
